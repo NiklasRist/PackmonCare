@@ -1,11 +1,14 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
-[ext_resource path="res://player/Backpack.png" type="Texture" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 8.0
 height = 0.0
+
+[sub_resource type="StreamTexture" id=2]
+flags = 4
+load_path = "res://.import/Backpack.png-649cc498d99921ace84b6a34af8650a1.stex"
 
 [node name="player" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -14,5 +17,7 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 2 )
-hframes = 13
+texture = SubResource( 2 )
+hframes = 17
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
