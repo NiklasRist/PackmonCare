@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://battle/BattleImage/TestBackground.png" type="Texture" id=1]
+[ext_resource path="res://battle/Attack menu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Pockmon Info.tscn" type="PackedScene" id=3]
+
+[node name="Battle" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+
+[node name="BackpacksTeam" type="VBoxContainer" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_bottom = 40.0
+
+[node name="PackmonImage" type="TextureRect" parent="BackpacksTeam"]
+margin_right = 320.0
+
+[node name="PackmonInfo" parent="BackpacksTeam" instance=ExtResource( 3 )]
+visible = false
+margin_top = 4.0
+margin_right = 320.0
+margin_bottom = 4.0
+
+[node name="Enemy" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+margin_bottom = 40.0
+
+[node name="PackmonInfo" parent="Enemy" instance=ExtResource( 3 )]
+visible = false
+margin_right = 320.0
+margin_bottom = 0.0
+
+[node name="PackmonImage" type="TextureRect" parent="Enemy"]
+margin_right = 320.0
+
+[node name="Panel" parent="." instance=ExtResource( 2 )]
+margin_left = -80.0
+margin_right = 80.0

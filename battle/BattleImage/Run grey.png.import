@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Backpack.png-649cc498d99921ace84b6a34af8650a1.stex"
+path="res://.import/Run grey.png-4e0c9f0dd0ea46e6d6ce6a9017c0aa81.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/Backpack.png"
-dest_files=[ "res://.import/Backpack.png-649cc498d99921ace84b6a34af8650a1.stex" ]
+source_file="res://battle/BattleImage/Run grey.png"
+dest_files=[ "res://.import/Run grey.png-4e0c9f0dd0ea46e6d6ce6a9017c0aa81.stex" ]
 
 [params]
 

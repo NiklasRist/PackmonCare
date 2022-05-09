@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Backpack.png-649cc498d99921ace84b6a34af8650a1.stex"
+path="res://.import/switch yellow (2).png-9c3d3fa95c4174fb2945d6be918f5a4a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/Backpack.png"
-dest_files=[ "res://.import/Backpack.png-649cc498d99921ace84b6a34af8650a1.stex" ]
+source_file="res://battle/BattleImage/switch yellow (2).png"
+dest_files=[ "res://.import/switch yellow (2).png-9c3d3fa95c4174fb2945d6be918f5a4a.stex" ]
 
 [params]
 
