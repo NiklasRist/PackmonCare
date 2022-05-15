@@ -623,10 +623,10 @@ func attackeLernen():
 					#dragon Attacken lvl 100	
 					pass
 				"dark":
-					#dark Attacken lvl 50	
+					#dark Attacken lvl 100	
 					pass
 				"fairy":
-					#fairy Attacken lvl 50		
+					#fairy Attacken lvl 100	
 					pass
 	
 	if attackenInBesitz.size() == 4:
