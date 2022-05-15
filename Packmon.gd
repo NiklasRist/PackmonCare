@@ -3,32 +3,32 @@ extends Node2D
 
 class_name Packmon
 
-var onLevelupHp
-var onLevelupAtk
-var onLevelupDef
-var onLevelupSpd
+export var onLevelupHp : int
+export var onLevelupAtk : int
+export var onLevelupDef : int
+export var onLevelupSpd : int
 
-var attackenInBesitz
+export var attackenInBesitz : PoolIntArray
 
-var type
+export var type : PoolStringArray
 
 #SP
-var epRequired
-var ep
-var lvl
-var hp
-var atk
-var def
-var spd
+export var epRequired : int
+export var ep : int
+export var lvl : int
+export var hp : int
+export var atk : int
+export var def : int
+export var spd : int
 
 #SW
-var paralyse
-var vergiftung
-var schlafend
-var brennend
-var regenerierend
-var eingefroren
-var verwirrt
+export var paralyse : bool
+export var vergiftung : bool
+export var schlafend : bool
+export var brennend : bool
+export var regenerierend : bool
+export var eingefroren : bool
+export var verwirrt : bool
 
 func _init():
 	type = ["normal"]
