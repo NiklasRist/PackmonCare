@@ -628,3 +628,9 @@ func attackeLernen():
 				"fairy":
 					#fairy Attacken lvl 50		
 					pass
+	
+	if attackenInBesitz.size() == 4:
+		attackeVerlernen()
+		
+func attackeVerlernen():
+	pass		#TODO!!!
