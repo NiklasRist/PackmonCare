@@ -22,7 +22,6 @@ text = "Was möchtest du tun?
 "
 align = 1
 valign = 1
-percent_visible = -0.2
 
 [node name="Attack1" type="MenuButton" parent="Panel"]
 margin_top = 180.0
