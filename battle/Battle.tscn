@@ -2,7 +2,7 @@
 
 [ext_resource path="res://battle/BattleImage/TestBackground.png" type="Texture" id=1]
 [ext_resource path="res://battle/Attack menu.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Pockmon Info.tscn" type="PackedScene" id=3]
+[ext_resource path="res://battle/Pockmon Info.tscn" type="PackedScene" id=3]
 
 [node name="Battle" type="Control"]
 anchor_right = 1.0
@@ -17,28 +17,33 @@ texture = ExtResource( 1 )
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_bottom = 40.0
+margin_right = -220.0
+margin_bottom = 30.0
 
 [node name="PackmonImage" type="TextureRect" parent="BackpacksTeam"]
-margin_right = 320.0
+margin_right = 100.0
 
 [node name="PackmonInfo" parent="BackpacksTeam" instance=ExtResource( 3 )]
-visible = false
 margin_top = 4.0
-margin_right = 320.0
-margin_bottom = 4.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 100, 20 )
 
 [node name="Enemy" type="VBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
 anchor_right = 1.0
-margin_bottom = 40.0
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -7.5
+margin_bottom = 7.5
 
 [node name="PackmonInfo" parent="Enemy" instance=ExtResource( 3 )]
-visible = false
-margin_right = 320.0
-margin_bottom = 0.0
+rect_min_size = Vector2( 100, 20 )
 
 [node name="PackmonImage" type="TextureRect" parent="Enemy"]
-margin_right = 320.0
+margin_top = 24.0
+margin_right = 100.0
+margin_bottom = 24.0
 
 [node name="Panel" parent="." instance=ExtResource( 2 )]
 margin_left = -80.0
