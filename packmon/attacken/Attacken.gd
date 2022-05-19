@@ -27,19 +27,23 @@ var hpDefault
 export (float, 3.5) var dmgp 
 #create slider for probability 0-1
 export (float, 1) var prob 
+#create slider for attack loading time 0-5
+export (int, 5) var atkLoad
 #create slider for duration 1-1000000000000
 export (int, 1, 1000000000000) var dur
 #create slider for repition 0-20
 export (int, 20) var rep
-#create clickbox
+#create checkbox for effect
 export (bool) var efct = [paralyse, vergiftung, schlafend, brennend, regenerierend, eingefroren, verwirrt]
+#create slider for effect probability 0-1
+export (float, 1) var efctprob
 #create slider for SP changes percentual
 export (float, -0.95, 2) var atkp
 export (float, -0.95, 2) var defp
 export (float, -0.95, 2) var hpp
 export (float, -0.95, 2) var spdp
 #create slider for priority
-export (int, 1, 10) var prio
+export (int, 2) var prio
 #create slider for target 
 #0=enemy
 #1=missed
