@@ -19,8 +19,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=4]
 resource_name = "playerMovingDown"
-length = 2.4
-step = 0.2
+length = 1.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("PlayerSprite:frame")
 tracks/0/interp = 1
@@ -28,7 +27,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 0 ]
@@ -65,13 +64,12 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 16, 13, 14, 15 ]
+"values": [ 13, 14, 15, 16 ]
 }
 
 [sub_resource type="Animation" id=7]
 resource_name = "playerMovingUp"
-length = 2.4
-step = 0.2
+length = 1.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("PlayerSprite:frame")
 tracks/0/interp = 1
@@ -79,7 +77,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 ]
@@ -89,8 +87,8 @@ tracks/0/keys = {
 load_path = "res://.import/Backpack.png-649cc498d99921ace84b6a34af8650a1.stex"
 
 [sub_resource type="CapsuleShape2D" id=8]
-radius = 5.0
-height = 4.0
+radius = 2.99999
+height = 6.00001
 
 [node name="player" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -113,9 +111,6 @@ __meta__ = {
 }
 
 [node name="Playercolision" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 1 )
+position = Vector2( 0, 3 )
 rotation = 1.5708
 shape = SubResource( 8 )
-__meta__ = {
-"_edit_lock_": true
-}
