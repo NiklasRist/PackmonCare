@@ -27,7 +27,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Packmon",
 "language": "GDScript",
-"path": "res://packmon/Packmon.gd"
+"path": "res://Packmon.gd"
 }, {
 "base": "PanelContainer",
 "class": "RepositoryItem",
