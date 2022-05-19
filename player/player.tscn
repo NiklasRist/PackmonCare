@@ -114,3 +114,6 @@ __meta__ = {
 position = Vector2( 0, 3 )
 rotation = 1.5708
 shape = SubResource( 8 )
+__meta__ = {
+"_edit_lock_": true
+}
