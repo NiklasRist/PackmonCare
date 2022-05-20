@@ -43,12 +43,12 @@ export (float, -0.95, 2) var defp
 export (float, -0.95, 2) var hpp
 export (float, -0.95, 2) var spdp
 #create slider for priority
-export (int, 2) var prio
+export (int, 1, 10) var prio
 #create slider for target 
 #0=enemy
 #1=missed
 #2=user
-export (int, 1, 10) var target
+export (int, 2) var target
 
 func _init():
 	dmgp=0
