@@ -8,7 +8,7 @@ var probability
 var dur
 var damagePercentageAmplify
 var speedslow
-var  HpHealed
+var HpHealed
 var rng = RandomNumberGenerator.new()
 
 
