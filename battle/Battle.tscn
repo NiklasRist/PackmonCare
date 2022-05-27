@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://battle/BattleImage/TestBackground.png" type="Texture" id=1]
 [ext_resource path="res://battle/Attack menu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://battle/Pockmon Info.tscn" type="PackedScene" id=3]
+[ext_resource path="res://battle/Battle.gd" type="Script" id=4]
 
 [node name="Battle" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 4 )
 
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0

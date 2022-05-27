@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://battle/BattleImage/switch yellow (2).png" type="Texture" id=1]
 [ext_resource path="res://battle/BattleImage/switch grey (2).png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://battle/BattleImage/bag grtey (3).png" type="Texture" id=4]
 [ext_resource path="res://battle/BattleImage/Run yellow.png" type="Texture" id=5]
 [ext_resource path="res://battle/BattleImage/Run grey.png" type="Texture" id=6]
+[ext_resource path="res://battle/TextureButton2.gd" type="Script" id=7]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
@@ -17,7 +18,7 @@ margin_left = -160.0
 margin_bottom = 20.0
 custom_styles/panel = SubResource( 1 )
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="bag" type="TextureButton" parent="."]
 margin_left = 5.0
 margin_right = 16.0
 margin_bottom = 20.0
@@ -25,7 +26,7 @@ texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 3 )
 texture_hover = ExtResource( 4 )
 
-[node name="TextureButton2" type="TextureButton" parent="."]
+[node name="flee" type="TextureButton" parent="."]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -36,8 +37,9 @@ margin_right = 8.0
 texture_normal = ExtResource( 6 )
 texture_pressed = ExtResource( 5 )
 texture_hover = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="TextureButton3" type="TextureButton" parent="."]
+[node name="switch" type="TextureButton" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -20.0

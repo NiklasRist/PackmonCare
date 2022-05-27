@@ -14,5 +14,4 @@ position = Vector2( 0, 64 )
 position = Vector2( 87, 49 )
 
 [node name="Camera2D2" type="Camera2D" parent="player"]
-position = Vector2( 1, 7 )
 current = true
