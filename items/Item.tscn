@@ -4,6 +4,7 @@
 [ext_resource path="res://items/Item.gd" type="Script" id=2]
 
 [node name="Item" type="Node2D"]
+z_index = 1
 script = ExtResource( 2 )
 
 [node name="ItemImage" type="TextureRect" parent="."]
@@ -16,5 +17,7 @@ margin_top = 8.0
 margin_right = 8.0
 margin_bottom = 8.0
 rect_min_size = Vector2( 64, 64 )
+mouse_filter = 2
+mouse_default_cursor_shape = 13
 texture = ExtResource( 1 )
 stretch_mode = 6

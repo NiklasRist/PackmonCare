@@ -3,8 +3,7 @@ extends Node2D
 func _process(_delta):
 	if Input.is_action_pressed("ui_cancel"):
 	  get_tree().quit()
-	
-#!!!!!!!!!stolen code, needs to be replaced!!!!!!!!!!!
+
 const slots = preload("res://inventory/slot1.gd")
 onready var inventorySlots = $ScrollContainer/grid
 var AlreadyItem = null
@@ -23,13 +22,15 @@ func slot_gui_input(event: InputEvent, slot: slots):
 				else:
 					var tempItem = slot.item
 					slot.drag()
-					tempItem.global_position = event.global_position
+					tempItem.global_position = event.global_position - Vector2(32, 32)
 					slot.drop(AlreadyItem)
 			elif slot.item:
 					AlreadyItem = slot.item
 					slot.drag()
 					AlreadyItem.global_position = get_global_mouse_position()
-					
+		if event.button_index == BUTTON_RIGHT:
+			#menu
+			pass	
 func _input(event):
 	if AlreadyItem:
 		AlreadyItem.global_position = get_global_mouse_position()
