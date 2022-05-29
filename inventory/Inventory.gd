@@ -22,16 +22,17 @@ func slot_gui_input(event: InputEvent, slot: slots):
 				else:
 					var tempItem = slot.item
 					slot.drag()
-					tempItem.global_position = event.global_position - Vector2(32, 32)
+					tempItem.global_position = event.global_position - Vector2(40, 40)
 					slot.drop(AlreadyItem)
 			elif slot.item:
 					AlreadyItem = slot.item
 					slot.drag()
-					AlreadyItem.global_position = get_global_mouse_position()
+					AlreadyItem.global_position = get_global_mouse_position() - - Vector2(40, 40)
 		if event.button_index == BUTTON_RIGHT:
 			#menu
 			pass	
 func _input(event):
 	if AlreadyItem:
-		AlreadyItem.global_position = get_global_mouse_position()
+		#follow mouse position
+		AlreadyItem.global_position = get_global_mouse_position() - Vector2(40, 40)
 		
