@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://inventory/Inventory.gd" type="Script" id=1]
 [ext_resource path="res://inventory/INventoryImages/backgroundInventory.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://themes/testTheme2.tres" type="Theme" id=5]
 [ext_resource path="res://inventory/slot1.gd" type="Script" id=6]
 [ext_resource path="res://inventory/Back.gd" type="Script" id=7]
+[ext_resource path="res://inventory/organize.gd" type="Script" id=8]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 4 )
@@ -188,7 +189,21 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 220.0
-rect_min_size = Vector2( 320, 20 )
+margin_right = 250.0
+margin_bottom = 240.0
+rect_min_size = Vector2( 250, 20 )
 shortcut = SubResource( 2 )
-text = "Main"
+text = "back"
 script = ExtResource( 7 )
+
+[node name="organize" type="Button" parent="Node"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 250.0
+margin_top = 220.0
+margin_bottom = 240.0
+rect_min_size = Vector2( 69, 20 )
+shortcut = SubResource( 2 )
+text = "Organize"
+script = ExtResource( 8 )
