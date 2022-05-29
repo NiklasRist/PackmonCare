@@ -190,5 +190,5 @@ anchor_bottom = 1.0
 margin_top = 220.0
 rect_min_size = Vector2( 320, 20 )
 shortcut = SubResource( 2 )
-text = "Helllo"
+text = "Main"
 script = ExtResource( 7 )

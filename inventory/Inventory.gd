@@ -27,7 +27,7 @@ func slot_gui_input(event: InputEvent, slot: slots):
 			elif slot.item:
 					AlreadyItem = slot.item
 					slot.drag()
-					AlreadyItem.global_position = get_global_mouse_position() - - Vector2(40, 40)
+					AlreadyItem.global_position = get_global_mouse_position() - Vector2(40, 40)
 		if event.button_index == BUTTON_RIGHT:
 			#menu
 			pass	
