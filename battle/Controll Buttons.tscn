@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://battle/BattleImage/switch yellow (2).png" type="Texture" id=1]
 [ext_resource path="res://battle/BattleImage/switch grey (2).png" type="Texture" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://battle/BattleImage/Run yellow.png" type="Texture" id=5]
 [ext_resource path="res://battle/BattleImage/Run grey.png" type="Texture" id=6]
 [ext_resource path="res://battle/TextureButton2.gd" type="Script" id=7]
+[ext_resource path="res://battle/switch.gd" type="Script" id=8]
+[ext_resource path="res://battle/bag.gd" type="Script" id=9]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
@@ -25,6 +27,7 @@ margin_bottom = 20.0
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 3 )
 texture_hover = ExtResource( 4 )
+script = ExtResource( 9 )
 
 [node name="flee" type="TextureButton" parent="."]
 anchor_left = 0.5
@@ -48,3 +51,4 @@ margin_bottom = 21.0
 texture_normal = ExtResource( 2 )
 texture_pressed = ExtResource( 1 )
 texture_hover = ExtResource( 2 )
+script = ExtResource( 8 )
