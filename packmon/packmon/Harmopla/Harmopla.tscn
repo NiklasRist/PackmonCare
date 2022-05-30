@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Harmopla.gd" type="Script" id=1]
+[ext_resource path="res://packmon/Packmon images/Harmopla/Harmopla.png" type="Texture" id=2]
+
+[node name="Harmopla" type="Node2D"]
+script = ExtResource( 1 )
+onLevelupHp = 15
+onLevelupSpd = 47
+onLevelupAtk = 11
+onLevelupDef = 27
+type = PoolStringArray( "Flying", "Steel" )
+epRequired = 12
+lvl = 1
+hp = 17
+spd = 45
+atk = 11
+def = 22
+texture = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
