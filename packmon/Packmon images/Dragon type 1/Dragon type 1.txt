@@ -1,0 +1,18 @@
+Dragon type 1:
+Lv. 1:
+HP: 33
+Spd: 10
+Atk: 25
+Def: 32
+
+Level Up:
+HP: +34
+Spd: +9
+Atk: +26
+Def: +31
+
+Level Up alle 5 Level:
+HP: +25
+Spd: +25
+Atk: +25
+Def: +25

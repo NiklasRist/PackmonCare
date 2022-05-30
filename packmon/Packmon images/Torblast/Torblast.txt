@@ -1,0 +1,18 @@
+Torblast:
+Lv. 1
+HP: 37
+Spd: 12
+Atk: 18
+Def: 33
+
+Level Up:
+HP: +38
+Spd: +9
+Atk: +21
+Def: +32
+
+Level Up alle 5 Level:
+HP: +25
+Spd: +25
+Atk: +25
+Def: +25
