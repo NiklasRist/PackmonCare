@@ -2,6 +2,8 @@ extends Node2D
 
 class_name Packmon
 
+export var name : String
+
 export var onLevelupHp : int
 export var onLevelupSpd : int
 export var onLevelupAtk : int
