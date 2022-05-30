@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Mothragon.gd" type="Script" id=1]
+[ext_resource path="res://packmon/Packmon images/Mothragon/Mothragon, Boden, Käfer.png" type="Texture" id=2]
+
+[node name="Mothragon" type="Node2D"]
+script = ExtResource( 1 )
+onLevelupHp = 30
+onLevelupSpd = 16
+onLevelupAtk = 377
+onLevelupDef = 19
+type = PoolStringArray( "Boden", "Käfer" )
+epRequired = 12
+lvl = 1
+hp = 31
+spd = 15
+atk = 36
+def = 20
+texture = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
