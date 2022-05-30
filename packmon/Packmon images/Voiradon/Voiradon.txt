@@ -1,0 +1,18 @@
+Voiradon:
+Lv. 1:
+HP: 19
+Spd: 20
+Atk: 43
+Def: 18
+
+Level Up:
+HP: +19
+Spd: +19
+Atk: +40
+Def: +22
+
+Level Up alle 5 Level:
+HP: +25
+Spd: +25
+Atk: +25
+Def: +25

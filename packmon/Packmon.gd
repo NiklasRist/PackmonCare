@@ -1,6 +1,5 @@
 extends Node2D
 
-
 class_name Packmon
 
 export var onLevelupHp : int
@@ -29,6 +28,8 @@ export var brennend : bool
 export var regenerierend : bool
 export var eingefroren : bool
 export var verwirrt : bool
+
+export (Texture) var texture
 
 func _init():
 	type = ["normal"]

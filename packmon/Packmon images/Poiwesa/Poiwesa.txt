@@ -1,0 +1,18 @@
+Poiwebsara:
+Lv. 1:
+HP: 24
+Spd: 26
+Atk: 33
+Def: 17
+
+Level Up:
+HP: +26
+Spd: +27
+Atk: +35
+Def: +10
+
+Level Up alle 5 Level:
+HP: +25
+Spd: +25
+Atk: +25
+Def: +25
