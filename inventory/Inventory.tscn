@@ -30,7 +30,7 @@ margin_bottom = 240.0
 texture = ExtResource( 2 )
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
-rect_min_size = Vector2( 320, 240 )
+rect_min_size = Vector2( 320, 220 )
 theme = ExtResource( 5 )
 
 [node name="grid" type="GridContainer" parent="ScrollContainer"]
@@ -180,12 +180,15 @@ rect_min_size = Vector2( 80, 80 )
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 6 )
 
-[node name="Back" type="Button" parent="."]
+[node name="Node" type="Node2D" parent="."]
+z_index = 2
+
+[node name="Back" type="Button" parent="Node"]
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 220.0
 rect_min_size = Vector2( 320, 20 )
 shortcut = SubResource( 2 )
-text = "Helllo"
+text = "Main"
 script = ExtResource( 7 )
