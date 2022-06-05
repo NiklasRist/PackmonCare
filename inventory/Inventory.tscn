@@ -188,20 +188,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 220.0
-margin_right = 250.0
-margin_bottom = 240.0
-rect_min_size = Vector2( 250, 20 )
+rect_min_size = Vector2( 320, 20 )
 shortcut = SubResource( 2 )
-text = "back"
+text = "Main"
 script = ExtResource( 7 )
-
-[node name="organize" type="Button" parent="Node"]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 250.0
-margin_top = 220.0
-margin_bottom = 240.0
-rect_min_size = Vector2( 69, 20 )
-shortcut = SubResource( 2 )
-text = "Organize"
