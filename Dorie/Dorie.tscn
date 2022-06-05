@@ -5,6 +5,7 @@
 
 [node name="Dorie" type="Node2D"]
 script = ExtResource( 2 )
+Packmonname = "Dorie"
 onLevelupHp = 42
 onLevelupSpd = 21
 onLevelupAtk = 18
