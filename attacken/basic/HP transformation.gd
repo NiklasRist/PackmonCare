@@ -1,4 +1,4 @@
-extends Label
+extends "res://packmon/attacken/Attacken.gd"
 
 
 # Declare member variables here. Examples:
