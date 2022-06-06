@@ -1,16 +1,19 @@
 extends "res://packmon/Packmon.gd"
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	Packmonname="Poiwesa"
+	
+	lvl=1
+	ep=0
+	epRequired=12
+	type = ["poison"]
+	
+	hp=24
+	spd=26
+	atk=33
+	def=17
+	
+	onLevelupHp=26
+	onLevelupSpd=27
+	onLevelupAtk=35
+	onLevelupDef=10
