@@ -1,13 +1,12 @@
 extends "res://packmon/Packmon.gd"
 
-
-func _ready():
+func _init():
 	Packmonname="Blazesect"
 	
 	lvl=1
 	ep=0
 	epRequired=12
-	type = ["bug", "fire"]
+	type = ["bug","fire"]
 	
 	hp=18
 	spd=23
@@ -19,3 +18,6 @@ func _ready():
 	onLevelupAtk=34
 	onLevelupDef=28
 	
+func _ready():
+	pass # Replace with function body.
+

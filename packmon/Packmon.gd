@@ -2,13 +2,15 @@ extends Node2D
 
 class_name Packmon
 
+export var Packmonname : String
+
 export var onLevelupHp : int
 export var onLevelupSpd : int
 export var onLevelupAtk : int
 export var onLevelupDef : int
 
 
-export var attackenInBesitz : PoolIntArray
+export var attackenInBesitz : PoolStringArray
 
 export var type : PoolStringArray
 
