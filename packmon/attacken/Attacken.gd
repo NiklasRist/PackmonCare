@@ -11,12 +11,14 @@ export var brennend = false
 export var regenerierend = false
 export var eingefroren = false 
 export var verwirrt = false
+var effecttarget
 
 var dmg
 var atkChange
 var defChange
 var spdChange
 var hpChange
+var changetarget
 
 var atkDefault
 var defDefault

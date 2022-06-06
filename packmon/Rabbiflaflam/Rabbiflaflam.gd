@@ -17,6 +17,7 @@ func _init():
 	onLevelupSpd=29
 	onLevelupAtk=31
 	onLevelupDef=19
-
+	
+	texture=load("res://packmon/Packmon images/Rabbiflaflam/Rabbiflaflam FireNormal.png")
 func _ready():
 	pass
