@@ -1,4 +1,4 @@
-extends Label
+extends ProgressBar
 
 const Rabbiflaflam = preload("res://packmon/Rabbiflaflam/Rabbiflaflam.gd") # Relative path
 onready var RabbiflaflamVar = Rabbiflaflam.new()
@@ -10,10 +10,4 @@ onready var RabbiflaflamVar = Rabbiflaflam.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(RabbiflaflamVar.Packmonname)
-	text=RabbiflaflamVar.Packmonname
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	value=RabbiflaflamVar.hp

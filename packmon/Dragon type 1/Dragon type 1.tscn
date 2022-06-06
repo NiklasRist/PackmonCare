@@ -1,8 +1,22 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
+[ext_resource path="res://packmon/Dragon type 1/Dragon type 1.gd" type="Script" id=1]
 [ext_resource path="res://packmon/Packmon images/Dragon type 1/Dragon type 1.png" type="Texture" id=2]
 
 [node name="Dragon type 1" type="Node2D"]
+script = ExtResource( 1 )
+Packmonname = "Dragon Type 1"
+onLevelupHp = 34
+onLevelupSpd = 9
+onLevelupAtk = 26
+onLevelupDef = 31
+type = PoolStringArray( "dragon" )
+epRequired = 12
+lvl = 1
+hp = 34
+spd = 10
+atk = 25
+def = 32
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )

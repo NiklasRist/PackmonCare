@@ -2,7 +2,7 @@ extends Node2D
 
 class_name Packmon
 
-export var name : String
+export var Packmonname : String
 
 export var onLevelupHp : int
 export var onLevelupSpd : int

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Harmopla.gd" type="Script" id=1]
+[ext_resource path="res://packmon/Harmopla/Harmopla.gd" type="Script" id=1]
 [ext_resource path="res://packmon/Packmon images/Harmopla/Harmopla.png" type="Texture" id=2]
 
 [node name="Harmopla" type="Node2D"]
