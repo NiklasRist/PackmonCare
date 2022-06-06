@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Rabbiflaflam.gd" type="Script" id=1]
+[ext_resource path="res://packmon/Rabbiflaflam/Rabbiflaflam.gd" type="Script" id=1]
 [ext_resource path="res://packmon/Packmon images/Rabbiflaflam/Rabbiflaflam FireNormal.png" type="Texture" id=2]
 
 [node name="Rabbiflaflam" type="Node2D"]

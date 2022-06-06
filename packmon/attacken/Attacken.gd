@@ -11,18 +11,21 @@ export var brennend = false
 export var regenerierend = false
 export var eingefroren = false 
 export var verwirrt = false
+var effecttarget
 
 var dmg
 var atkChange
 var defChange
 var spdChange
 var hpChange
+var changetarget
 
 var atkDefault
 var defDefault
 var spdDefault
 var hpDefault
 
+var attackname
 #create slider for damage percentual 0-3.5
 export (float, 3.5) var dmgp 
 #create slider for probability 0-1
@@ -53,12 +56,12 @@ export (int, 2) var target
 func _init():
 	dmgp=0
 	prob=0
-	dmg = dmgp * PackmonVar.atk
+	dmg = dmgp #* PackmonVar.atk
 	
-	atkChange=atkp*atkDefault
-	defChange=defp*defDefault
-	spdChange=spdp*spdDefault
-	hpChange=hpp*hpDefault
+	atkChange=atkp#*atkDefault
+	defChange=defp#*defDefault
+	spdChange=spdp#*spdDefault
+	hpChange=hpp#*hpDefault
 	
 	
 	

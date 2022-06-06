@@ -1,21 +1,10 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Eleceel.gd" type="Script" id=1]
+[ext_resource path="res://packmon/Eleceel/Eleceel.gd" type="Script" id=1]
 [ext_resource path="res://packmon/Packmon images/Eleceel/Eleceel.png" type="Texture" id=2]
 
 [node name="Eleceel" type="Node2D"]
 script = ExtResource( 1 )
-onLevelupHp = 36
-onLevelupAtk = 22
-onLevelupDef = 11
-onLevelupSpd = 31
-epRequired = 12
-lvl = 1
-hp = 36
-atk = 33
-def = 10
-spd = 33
-texture = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Mastermind.gd" type="Script" id=1]
+[ext_resource path="res://packmon/Mastermind/Mastermind.gd" type="Script" id=1]
 [ext_resource path="res://packmon/Packmon images/Mastermind/Mastermind.png" type="Texture" id=2]
 
 [node name="Mastermind" type="Node2D"]

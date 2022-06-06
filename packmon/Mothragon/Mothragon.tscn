@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Mothragon.gd" type="Script" id=1]
+[ext_resource path="res://packmon/Mothragon/Mothragon.gd" type="Script" id=1]
 [ext_resource path="res://packmon/Packmon images/Mothragon/Mothragon, Boden, Käfer.png" type="Texture" id=2]
 
 [node name="Mothragon" type="Node2D"]

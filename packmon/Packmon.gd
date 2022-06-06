@@ -10,7 +10,7 @@ export var onLevelupAtk : int
 export var onLevelupDef : int
 
 
-export var attackenInBesitz : PoolIntArray
+export var attackenInBesitz : PoolStringArray
 
 export var type : PoolStringArray
 
