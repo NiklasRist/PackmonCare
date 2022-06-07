@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Poiwesa.gd" type="Script" id=1]
+[ext_resource path="res://packmon/Packmon images/Poiwesa/Powesa.png" type="Texture" id=2]
+
+[node name="Poiwesa" type="Node2D"]
+script = ExtResource( 1 )
+onLevelupHp = 26
+onLevelupSpd = 27
+onLevelupAtk = 35
+onLevelupDef = 10
+epRequired = 12
+lvl = 1
+hp = 24
+spd = 26
+atk = 33
+def = 17
+texture = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )

@@ -1,0 +1,18 @@
+Mothragon:
+Lv. 1:
+HP: 31
+Spd: 15
+Atk: 36
+Def: 20
+
+Level Up:
+HP: +30
+Spd: +16
+Atk: +37
+Def: +19
+
+Level Up alle 5 Level:
+HP: +25
+Spd: +25
+Atk: +25
+Def: +25

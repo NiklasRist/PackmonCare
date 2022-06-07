@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Torblast.gd" type="Script" id=1]
+[ext_resource path="res://packmon/Packmon images/Torblast/Torblast, water rock.png" type="Texture" id=2]
+
+[node name="Torblast" type="Node2D"]
+script = ExtResource( 1 )
+onLevelupHp = 38
+onLevelupSpd = 9
+onLevelupAtk = 21
+onLevelupDef = 32
+type = PoolStringArray( "rock", "water" )
+epRequired = 12
+lvl = 1
+hp = 37
+spd = 12
+atk = 18
+def = 33
+texture = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
