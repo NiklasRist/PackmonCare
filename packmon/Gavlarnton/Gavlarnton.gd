@@ -7,6 +7,7 @@ func _init():
 	ep=0
 	epRequired=12
 	type = ["ghost"]
+	attackenInBesitz=["fast punch", "", "", ""]
 	
 	hp=12
 	spd=28
@@ -17,6 +18,7 @@ func _init():
 	onLevelupSpd=26
 	onLevelupAtk=34
 	onLevelupDef=19
-
+	
+	texture=load("res://packmon/Packmon images/Gavlarnton/Gavlarnton.png")
 func _ready():
 	pass

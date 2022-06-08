@@ -11,14 +11,29 @@ export var brennend = false
 export var regenerierend = false
 export var eingefroren = false 
 export var verwirrt = false
+export var angst = false
+#0=enemy
+#1=missed
+#2=user
 var effecttarget
+var effectprob
 
 var dmg
-var atkChange
-var defChange
-var spdChange
-var hpChange
-var changetarget
+#fist number is change of user sp, second of enemy sp
+var atkChange=[0, 0]
+var defChange=[0, 0]
+var spdChange=[0, 0]
+var hpChange=[0, 0]
+
+var atkChangeUser=false
+var atkChangeEnemy=false
+var defChangeUser=false
+var defChangeEnemy=false
+var spdChangeUser=false
+var spdChangeEnemy=false
+var hpChangeUser=false
+var hpChangeEnemy=false
+var changetarget=[atkChangeUser, atkChangeEnemy, defChangeUser, defChangeEnemy, spdChangeUser, spdChangeEnemy, hpChangeUser, hpChangeEnemy]
 
 var atkDefault
 var defDefault

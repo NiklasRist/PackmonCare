@@ -6,11 +6,7 @@ func _init():
 	prob=1
 	atkLoad=0
 	dur=1
-	rep=1
-	atkChange=0
-	defChange=0
-	spdChange=0
-	hpChange=0
+	rep=0
 	prio=9
 	target=0
 	
