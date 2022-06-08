@@ -7,7 +7,7 @@
 [ext_resource path="res://themes/testTheme2.tres" type="Theme" id=5]
 [ext_resource path="res://inventory/slot1.gd" type="Script" id=6]
 [ext_resource path="res://inventory/Back.gd" type="Script" id=7]
-[ext_resource path="res://inventory/organize.gd" type="Script" id=8]
+[ext_resource path="res://inventory/RightClickMenue.tscn" type="PackedScene" id=8]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 4 )
@@ -206,4 +206,6 @@ margin_bottom = 240.0
 rect_min_size = Vector2( 69, 20 )
 shortcut = SubResource( 2 )
 text = "Organize"
-script = ExtResource( 8 )
+
+[node name="RightClickMenue" parent="." instance=ExtResource( 8 )]
+visible = false

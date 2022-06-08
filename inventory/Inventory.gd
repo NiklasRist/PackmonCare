@@ -7,6 +7,7 @@ func _process(_delta):
 const slots = preload("res://inventory/slot1.gd")
 onready var inventorySlots = $ScrollContainer/grid
 var AlreadyItem = null
+var rightClickVisible
 
 func _ready():
 	for slotInvent in inventorySlots.get_children():
@@ -14,6 +15,11 @@ func _ready():
 		
 func slot_gui_input(event: InputEvent, slot: slots):
 	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT:
+			if rightClickVisible == true:
+				rightClickVisible = false
+			else:
+				rightClickVisible = true
 		if event.button_index == BUTTON_LEFT && event.pressed:
 			if AlreadyItem != null:
 				if !slot.item:
@@ -28,9 +34,22 @@ func slot_gui_input(event: InputEvent, slot: slots):
 					AlreadyItem = slot.item
 					slot.drag()
 					AlreadyItem.global_position = get_global_mouse_position() - Vector2(40, 40)
-		if event.button_index == BUTTON_RIGHT:
-			#menu
-			pass	
+			if rightClickVisible == true:
+				rightClickVisible = false
+			else:
+				rightClickVisible = true
+		
+		
+		if event.button_index == BUTTON_LEFT:
+			get_child(4).visible = false
+			rightClickVisible = false
+		
+		if event.button_index == BUTTON_RIGHT && rightClickVisible == false:
+			get_child(4).visible = true
+			
+			
+		
+			
 func _input(event):
 	if AlreadyItem:
 		#follow mouse position
