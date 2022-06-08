@@ -7,6 +7,7 @@ func _init():
 	ep=0
 	epRequired=12
 	type = ["electric", "water"]
+	attackenInBesitz=["fast punch", "", "", ""]
 	
 	hp=36
 	spd=33
@@ -18,5 +19,6 @@ func _init():
 	onLevelupAtk=22
 	onLevelupDef=11
 
+	texture=load("res://packmon/Packmon images/Eleceel/Eleceel.png")
 func _ready():
 	pass

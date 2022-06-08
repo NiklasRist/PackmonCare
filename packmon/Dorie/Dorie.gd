@@ -7,6 +7,7 @@ func _init():
 	ep=0
 	epRequired=12
 	type = ["water"]
+	attackenInBesitz=["fast punch", "hooo", "", ""]
 	
 	hp=42
 	spd=18
@@ -17,6 +18,8 @@ func _init():
 	onLevelupSpd=19
 	onLevelupAtk=18
 	onLevelupDef=22
+	
+	texture=load("res://packmon/Packmon images/Dorie/Dorie.png")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
