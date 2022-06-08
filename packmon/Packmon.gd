@@ -1,12 +1,12 @@
 extends Node2D
 
-
 class_name Packmon
 
 export var onLevelupHp : int
+export var onLevelupSpd : int
 export var onLevelupAtk : int
 export var onLevelupDef : int
-export var onLevelupSpd : int
+
 
 export var attackenInBesitz : PoolIntArray
 
@@ -17,9 +17,10 @@ export var epRequired : int
 export var ep : int
 export var lvl : int
 export var hp : int
+export var spd : int
 export var atk : int
 export var def : int
-export var spd : int
+
 
 #SW
 export var paralyse : bool
@@ -29,6 +30,8 @@ export var brennend : bool
 export var regenerierend : bool
 export var eingefroren : bool
 export var verwirrt : bool
+
+export (Texture) var texture
 
 func _init():
 	type = ["normal"]

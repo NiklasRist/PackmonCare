@@ -1,0 +1,20 @@
+SP-Verteilung: NomNom
+
+
+Startwerte bei lvl 1:
+HP:	12
+SPD:	30
+ATK:	22
+DEF:	38
+
+Bei Levelup:
+HP:	+15
+SPD:	+29
+ATK:	+20
+DEF:	+32
+
+Alle 5 lvl:
+HP:	+25
+SPD:	+25
+ATK:	+25
+DEF:	+25
