@@ -7,6 +7,7 @@ func _init():
 	ep=0
 	epRequired=12
 	type = ["plant"]
+	attackenInBesitz=["fast punch", "", "", ""]
 	
 	hp=25
 	spd=13
@@ -17,6 +18,7 @@ func _init():
 	onLevelupSpd=12
 	onLevelupAtk=34
 	onLevelupDef=28
-
+	
+	texture= load("res://packmon/Packmon images/Piranha Plant/Piranha Plant.png")
 func _ready():
 	pass
