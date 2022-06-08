@@ -7,6 +7,7 @@ func _init():
 	ep=0
 	epRequired=12
 	type = ["electric", "steel"]
+	attackenInBesitz=["fast punch", "", "", ""]
 	
 	hp=30
 	spd=28
@@ -17,6 +18,7 @@ func _init():
 	onLevelupSpd=27
 	onLevelupAtk=12
 	onLevelupDef=28
-
+	
+	texture=load("res://packmon/Packmon images/Golec/Golec.png")
 func _ready():
 	pass

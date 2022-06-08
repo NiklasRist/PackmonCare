@@ -6,14 +6,11 @@ func _init():
 	prob=0.9
 	atkLoad=2
 	dur=1
-	rep=1
-	atkChange=0
-	defChange=0
-	spdChange=0
-	hpChange=0.1*dmg
+	rep=0
+	hpChange=[0.1*dmg, 0]
 	prio=10
 	target=0
-	changetarget=0
+	changetarget=[false, false, false, false, false, false, true, false]
 	
 func _ready():
 	pass # Replace with function body.

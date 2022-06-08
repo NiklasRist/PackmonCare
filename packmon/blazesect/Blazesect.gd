@@ -7,6 +7,7 @@ func _init():
 	ep=0
 	epRequired=12
 	type = ["bug","fire"]
+	attackenInBesitz=["fast punch", "", "", ""]
 	
 	hp=18
 	spd=23
@@ -18,6 +19,7 @@ func _init():
 	onLevelupAtk=34
 	onLevelupDef=28
 	
+	texture=load("res://packmon/Packmon images/Blazesect/Blazesect.png")
 func _ready():
 	pass # Replace with function body.
 
