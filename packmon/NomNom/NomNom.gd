@@ -7,6 +7,7 @@ func _init():
 	ep=0
 	epRequired=12
 	type = ["ghost"]
+	attackenInBesitz=["fast punch", "", "", ""]
 	
 	hp=12
 	spd=30
@@ -17,6 +18,7 @@ func _init():
 	onLevelupSpd=29
 	onLevelupAtk=20
 	onLevelupDef=32
-
+	
+	texture=load("")
 func _ready():
 	pass
