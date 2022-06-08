@@ -7,6 +7,7 @@ func _init():
 	ep=0
 	epRequired=12
 	type = ["poison"]
+	attackenInBesitz=["fast punch", "", "", ""]
 	
 	hp=24
 	spd=26
@@ -17,6 +18,7 @@ func _init():
 	onLevelupSpd=27
 	onLevelupAtk=35
 	onLevelupDef=10
-
+	
+	texture = load("res://packmon/Packmon images/Poiwesa/Powesa.png")
 func _ready():
 	pass
