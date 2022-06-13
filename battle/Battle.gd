@@ -1,5 +1,6 @@
 extends Control
 
+#import all packmon
 const dorie_ = preload("res://packmon/Dorie/Dorie.gd")
 var dorie = dorie_.new()
 
@@ -51,6 +52,33 @@ var voiradon = voiradon_.new()
 const blazesect_ = preload("res://packmon/blazesect/Blazesect.gd")
 var blazesect = blazesect_.new()
 
+#import all attacks
+
+const fastpunch_ = preload("res://packmon/attacken/basic/fast punch.gd")
+var fastpunch = fastpunch_.new()
+
+const hardening_ = preload("res://packmon/attacken/basic/hardening.gd")
+var hardening = hardening_.new()
+
+const hp_transformation_ = preload("res://packmon/attacken/basic/fast punch.gd")
+var hp_transformation =hp_transformation_.new()
+
+const meditation_ = preload("res://packmon/attacken/basic/fast punch.gd")
+var meditation = meditation_.new()
+
+const scary_bite_ = preload("res://packmon/attacken/basic/fast punch.gd")
+var scary_bite = scary_bite_.new()
+
+const silent_battle_cry_ = preload("res://packmon/attacken/basic/fast punch.gd")
+var silent_battle_cry = fastpunch_.new()
+
+const tail_whip_ = preload("res://packmon/attacken/basic/fast punch.gd")
+var tail_whip = tail_whip_.new()
+
+const weaken_scales_ = preload("res://packmon/attacken/basic/fast punch.gd")
+var weaken_scales = weaken_scales_.new()
+
+
 var loaded=false
 var userpack=false
 var rand=RandomNumberGenerator.new()
@@ -67,10 +95,19 @@ var PackattacksU=["", "", "", ""]
 var PackimageU
 var PackhpU
 var PackepU
+#enemy attack selected
+var sel=false
+#user attack selected
+var u_sel=false
+#enemy attackname
+var attackname
+#user attackname
+var u_attackname
 
 func _process(_delta):
 	if Input.is_action_pressed("ui_cancel"):
 	  get_tree().quit()
+	#load random enemy packmon
 	if !loaded: #selects enemy packmon
 		rand.randomize()
 		num = rand.randi_range(0, 16)
@@ -180,6 +217,7 @@ func _process(_delta):
 				
 		_set_enemy_packmon_data(Packname, Packattacks, Packimage, Packhp, Packep)
 		loaded=true
+	#load user packmon
 	if !userpack:
 		#load user packmon
 		PacknameU=rabbiflaflam.Packmonname
@@ -189,9 +227,21 @@ func _process(_delta):
 		PackepU=rabbiflaflam.ep
 		_set_user_packmon_data(PacknameU, PackattacksU, PackimageU, PackhpU, PackepU)
 		userpack=true
+	#enemy selects attack 
 	if loaded && userpack:
-		#battle
-		pass
+		_select_enemy_attack()
+	#attack effects
+	if sel && u_sel:
+		attack_effect(attackname)
+		attack_effect(u_attackname)
+		
+		#for debugging
+		print(attackname)
+		print(u_attackname)
+		
+		sel=!sel
+		u_sel=!u_sel
+	_update_packmon_data(Packname, Packattacks, Packimage, Packhp, Packep, PacknameU, PackattacksU, PackimageU, PackhpU, PackepU)
 	
 	
 
@@ -225,3 +275,59 @@ func _set_user_packmon_data(name, attacks, image, hp, ep):
 	get_node("actionmenu/Button2").text=attacks[1]
 	get_node("actionmenu/Button3").text=attacks[2]
 	get_node("actionmenu").get_node("Button4").text=attacks[3]
+
+func _update_packmon_data(name, attacks, image, hp, ep, nameU, attacksU, imageU, hpU, epU):
+	get_node("Enemy/PackmonInfo").get_node("Name").text = name
+	get_node("Enemy/PackmonInfo").get_node("HP").value = hp
+	get_node("Enemy/PackmonInfo").get_node("HP").get_node("HPNumber").text = str(hp)
+	get_node("Enemy/PackmonInfo").get_node("EP").value = ep
+	
+	get_node("BackpacksTeam/PackmonInfo").get_node("Name").text = nameU
+	get_node("BackpacksTeam/PackmonInfo").get_node("HP").value = hpU
+	get_node("BackpacksTeam/PackmonInfo").get_node("HP").get_node("HPNumber").text = str(hpU)
+	get_node("BackpacksTeam/PackmonInfo").get_node("EP").value = epU
+
+func _on_Button_pressed():
+	if sel:
+		u_attackname=get_node("actionmenu/Button").text
+		if u_attackname != "":
+			u_sel=true
+
+
+func _on_Button2_pressed():
+	if sel:
+		u_attackname=get_node("actionmenu/Button2").text
+		if u_attackname != "":
+			u_sel=true
+
+
+func _on_Button3_pressed():
+	if sel:
+		u_attackname=get_node("actionmenu/Button3").text
+		if u_attackname != "":
+			u_sel=true
+
+
+func _on_Button4_pressed():
+	if sel:
+		u_attackname=get_node("actionmenu/Button4").text
+		if u_attackname != "":
+			u_sel=true
+
+func _select_enemy_attack():
+	rand.randomize()
+	num = rand.randi_range(0, 3)
+	while Packattacks[num] == "":
+		rand.randomize()
+		num = rand.randi_range(0, 3)
+	sel=true	
+	attackname=Packattacks[num]
+
+func attack_effect(atknm):
+	pass
+
+func get_dmg():
+	pass
+
+func attack_var():
+	pass
