@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Voiradon.gd" type="Script" id=1]
+[ext_resource path="res://packmon/Voiradon/Voiradon.gd" type="Script" id=1]
 [ext_resource path="res://packmon/Packmon images/Voiradon/Voiradon, fight, ghost.png" type="Texture" id=2]
 
 [node name="Voiradon" type="Node2D"]
