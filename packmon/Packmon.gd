@@ -56,7 +56,7 @@ func _init():
 
 func levelup():
 	epRequired = epRequired * 1.2
-	
+	lvl+=1
 	if lvl % 5 == 0:
 		hp += 25
 		atk += 25
