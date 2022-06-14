@@ -82,7 +82,7 @@ var weaken_scales = weaken_scales_.new()
 var loaded=false
 var userpack=false
 var rand=RandomNumberGenerator.new()
-var num
+var num=0.0
 #enemy var
 var packmon
 var Packname
@@ -115,7 +115,10 @@ var target
 var u_dmg
 var u_target
 #zwischspeicher
-var zwsave = [0, 0]
+var zwsave = [0, 0, 0] #float
+var zwsave_bool = false
+#probability [prob, u_prob]
+var prob = [0, 0]
 
 func _process(_delta):
 	if Input.is_action_pressed("ui_cancel"):
@@ -267,9 +270,11 @@ func _process(_delta):
 		attack_var(attackname, dmg, target, packmon)
 		dmg=zwsave[0]
 		target=zwsave[1]
+		prob[0]= zwsave[2]
 		attack_var(u_attackname, u_dmg, u_target, u_packmon)
 		u_dmg=zwsave[0]
 		u_target=zwsave[1]
+		prob[1]= zwsave[2]
 		
 		attack_effect(attackname)
 		attack_effect(u_attackname)
@@ -278,21 +283,34 @@ func _process(_delta):
 		print(attackname)
 		print(u_attackname)
 		
+		if packmon.spd>u_packmon.spd:
+			if attack_successfull(prob[0]):
+				get_dmg(dmg, target, u_packmon, packmon, packmon.def)
+				print("Enemy!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+			if attack_successfull(prob[1]):
+				get_dmg(u_dmg, u_target, packmon, u_packmon, u_packmon.def)
+				print("User!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+		else:
+			zwsave_bool=attack_successfull(prob[1])
+			if zwsave_bool:
+				get_dmg(u_dmg, u_target, packmon, u_packmon, u_packmon.def)
+				print("User!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+			zwsave_bool=attack_successfull(prob[0])
+			if zwsave_bool:
+				get_dmg(dmg, target, u_packmon, packmon, packmon.def)
+				print("Enemy!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+			
 		
-		
-		get_dmg(dmg, target, u_packmon, packmon)
-		
-		get_dmg(u_dmg, u_target, packmon, u_packmon)
 		
 		print(packmon.hp, " ", dmg, " ", target)
 		print(u_packmon.hp, " ", u_dmg, " ", u_target)
-		
 		sel=!sel
 		u_sel=!u_sel
-	
 	_update_packmon_data(Packname, Packattacks, Packimage, packmon.hp, Packep, PacknameU, PackattacksU, PackimageU, u_packmon.hp, PackepU)
 	if packmon.hp <= 0:
 		loaded=!loaded
+		u_packmon.levelup()
+		print("Level: ", u_packmon.lvl)
 	if u_packmon.hp <= 0:
 		get_tree().change_scene("res://Main.tscn")
 	
@@ -379,42 +397,168 @@ func _select_enemy_attack():
 func attack_effect(atknm):
 	pass
 
-func get_dmg(damge, targ, pkmon, u_pkmon):
+func get_dmg(damge, targ, pkmon, u_pkmon, def):
 	match targ:
 		0:
-			pkmon.hp-=damge
+			if (def-damge)<0:
+				pkmon.hp-=def-damge
+			else:
+				pkmon.hp-=1
 		1:
 			#attacke fehlgeschlagen
 			pass
 		2:
-			u_pkmon.hp-=damge
+			if (def-damge)<0:
+				u_pkmon.hp-=def-damge
+			else:
+				u_pkmon.hp-=1
+	damge=type_damage(damge, u_pkmon, pkmon)
 func attack_var(atkname, damge, targ, pkmon):
+	var prb
 	match atkname:
 		"fast punch":
 			damge=fastpunch.dmgp * pkmon.atk
 			targ=fastpunch.target
+			prb=fastpunch.prob
 		"hardening":
 			damge=hardening.dmgp * pkmon.atk
 			targ=hardening.target
+			prb=hardening.prob
 		"HP transformation":
 			damge=hp_transformation.dmgp * pkmon.atk
 			targ=hp_transformation.target
+			prb=hp_transformation.prob
 		"meditation":
 			damge=meditation.dmgp * pkmon.atk
 			targ=meditation.target
+			prb=meditation.prob
 		"scary bite":
 			damge=scary_bite.dmgp * pkmon.atk
 			targ=scary_bite.target
+			prb=scary_bite.prob
 		"silent_battle_cry":
 			damge=silent_battle_cry.dmgp * pkmon.atk
 			targ=silent_battle_cry.target
+			prb=silent_battle_cry.prob
 		"tail whip":
 			damge=tail_whip.dmgp * pkmon.atk
 			targ=tail_whip.target
+			prb=tail_whip.prob
 		"weaken scales":
 			damge=weaken_scales.dmgp * pkmon.atk
 			targ=weaken_scales.target
+			prb=weaken_scales.prob
 	#for debugging
 	print(atkname, " ", damge, " ", targ, " ", pkmon)
-	zwsave=[damge, targ]
+	zwsave=[damge, targ, prb]
 	
+func attack_successfull(prb):
+	var save = prb
+	prb = null
+	prb=save
+	rand.randomize()
+	num= null
+	num = rand.randf_range(0, 1)
+	print("Num: ", num)
+	if !prb<num:
+		return true
+	else:
+		return false
+func type_damage(damge, atk_pkmn, def_pkmn):
+	match atk_pkmn.type:
+		"normal":
+			match def_pkmn.type:
+				"fight":
+					damge*=2
+				"ghost":
+					damge*=0
+		"fight":
+			match def_pkmn.type:
+				"flying":
+					damge*=2
+				"rock":
+					damge*=0.5
+				"bug":
+					damge*=0.5
+				"psychic":
+					damge*=2
+				"dark":
+					damge*=0.5
+				"fairy":
+					damge*=2	
+				
+		"flying":
+			match def_pkmn.type:
+				"fight":
+					damge*=0.5
+				"ground":
+					damge*=0
+				"rock":
+					damge*=2
+				"bug":
+					damge*=0.5
+				"grass":
+					damge*=0.5
+				"electic":
+					damge*=2	
+				"ice":
+					damge*=2	
+		"poison":
+			match def_pkmn.type:
+				"fight":
+					damge*=0.5
+				"poison":
+					damge*=0.5
+				"ground":
+					damge*=2
+				"bug":
+					damge*=0.5
+				"grass":
+					damge*=0.5
+				"psychic":
+					damge*=2	
+				"fairy":
+					damge*=2	
+		"ground":
+					#ground Attacken lvl 10	
+					pass
+		"rock":
+					#rock Attacken lvl 10	
+					pass
+		"bug":
+					#bug Attacken lvl 10	
+					pass
+		"ghost":
+					#ghost Attacken lvl 10	
+					pass
+		"steel":
+					#steel Attacken lvl 10	
+					pass
+		"fire":
+					#fire Attacken lvl 10	
+					pass
+		"water":
+					#water Attacken lvl 10	
+					pass
+		"grass":
+					#grass Attacken lvl 10	
+					pass
+		"electric":
+					#electric Attacken lvl 10
+					pass
+		"psychic":
+					#psychic Attacken lvl 10	
+					pass
+		"ice":
+					#ice Attacken lvl 10	
+					pass
+		"dragon":
+					#dragon Attacken lvl 10	
+					pass
+		"dark":
+					#dark Attacken lvl 10	
+					pass
+		"fairy":
+					#fairy Attacken lvl 10		
+					pass
+	return damge
