@@ -279,10 +279,6 @@ func _process(_delta):
 		attack_effect(attackname)
 		attack_effect(u_attackname)
 		
-		#for debugging
-		print(attackname)
-		print(u_attackname)
-		
 		if packmon.spd>u_packmon.spd:
 			if attack_successfull(prob[0]):
 				get_dmg(dmg, target, u_packmon, packmon, packmon.def)
@@ -302,8 +298,8 @@ func _process(_delta):
 			
 		
 		
-		print(packmon.hp, " ", dmg, " ", target)
-		print(u_packmon.hp, " ", u_dmg, " ", u_target)
+		print(packmon.hp, " ", dmg, " ", target, "", attackname)
+		print(u_packmon.hp, " ", u_dmg, " ", u_target, "", u_attackname)
 		sel=!sel
 		u_sel=!u_sel
 	_update_packmon_data(Packname, Packattacks, Packimage, packmon.hp, Packep, PacknameU, PackattacksU, PackimageU, u_packmon.hp, PackepU)
@@ -398,6 +394,7 @@ func attack_effect(atknm):
 	pass
 
 func get_dmg(damge, targ, pkmon, u_pkmon, def):
+	damge=type_damage(damge, u_pkmon, pkmon)
 	match targ:
 		0:
 			if (def-damge)<0:
@@ -412,7 +409,7 @@ func get_dmg(damge, targ, pkmon, u_pkmon, def):
 				u_pkmon.hp-=def-damge
 			else:
 				u_pkmon.hp-=1
-	damge=type_damage(damge, u_pkmon, pkmon)
+	
 func attack_var(atkname, damge, targ, pkmon):
 	var prb
 	match atkname:
@@ -432,6 +429,7 @@ func attack_var(atkname, damge, targ, pkmon):
 			damge=meditation.dmgp * pkmon.atk
 			targ=meditation.target
 			prb=meditation.prob
+			print("88888888    ", meditation.dmgp, "     8888888888")
 		"scary bite":
 			damge=scary_bite.dmgp * pkmon.atk
 			targ=scary_bite.target
@@ -460,20 +458,20 @@ func attack_successfull(prb):
 	num= null
 	num = rand.randf_range(0, 1)
 	print("Num: ", num)
-	if !prb<num:
-		return true
-	else:
-		return false
+	var wahr = !prb<num
+	match wahr:
+		true: return true
+		false: return false
 func type_damage(damge, atk_pkmn, def_pkmn):
-	match atk_pkmn.type:
+	match def_pkmn.type:
 		"normal":
-			match def_pkmn.type:
+			match atk_pkmn.type:
 				"fight":
 					damge*=2
 				"ghost":
 					damge*=0
 		"fight":
-			match def_pkmn.type:
+			match atk_pkmn.type:
 				"flying":
 					damge*=2
 				"rock":
@@ -488,7 +486,7 @@ func type_damage(damge, atk_pkmn, def_pkmn):
 					damge*=2	
 				
 		"flying":
-			match def_pkmn.type:
+			match atk_pkmn.type:
 				"fight":
 					damge*=0.5
 				"ground":
@@ -504,7 +502,7 @@ func type_damage(damge, atk_pkmn, def_pkmn):
 				"ice":
 					damge*=2	
 		"poison":
-			match def_pkmn.type:
+			match atk_pkmn.type:
 				"fight":
 					damge*=0.5
 				"poison":
@@ -520,23 +518,111 @@ func type_damage(damge, atk_pkmn, def_pkmn):
 				"fairy":
 					damge*=2	
 		"ground":
-					#ground Attacken lvl 10	
-					pass
+			match atk_pkmn.type:
+				"rock":
+					damge*=0.5
+				"poison":
+					damge*=0.5
+				"water":
+					damge*=2
+				"electric":
+					damge*=0
+				"grass":
+					damge*=2
+				"ice":
+					damge*=2
 		"rock":
-					#rock Attacken lvl 10	
-					pass
+			match atk_pkmn.type:
+				"normal":
+					damge*=0.5
+				"fight":
+					damge*=2
+				"flying":
+					damge*=0.5
+				"poison":
+					damge*=0.5
+				"ground":
+					damge*=2
+				"steel":
+					damge*=2
+				"fire":
+					damge*=0.5
+				"water":
+					damge*=2
+				"grass":
+					damge*=2
 		"bug":
-					#bug Attacken lvl 10	
-					pass
+			match atk_pkmn.type:
+				"fight":
+					damge*=0.5
+				"flying":
+					damge*=2
+				"ground":
+					damge*=0.5
+				"rock":
+					damge*=2
+				"fire":
+					damge*=2
+				"grass":
+					damge*=0.5
 		"ghost":
-					#ghost Attacken lvl 10	
-					pass
+			match atk_pkmn.type:
+				"fight":
+					damge*=0
+				"normal":
+					damge*=0
+				"poison":
+					damge*=0.5
+				"bug":
+					damge*=0.5
+				"dark":
+					damge*=2
+				"ghost":
+					damge*=2
 		"steel":
-					#steel Attacken lvl 10	
-					pass
+			match atk_pkmn.type:
+				"fight":
+					damge*=2
+				"normal":
+					damge*=0.5
+				"poison":
+					damge*=0
+				"bug":
+					damge*=0.5
+				"flying":
+					damge*=0.5
+				"rock":
+					damge*=0.5
+				"ground":
+					damge*=2
+				"steel":
+					damge*=0.5
+				"fire":
+					damge*=2
+				"grass":
+					damge*=0.5
+				"psychic":
+					damge*=0.5
+				"ice":
+					damge*=0.5
+				"dragon":
+					damge*=0.5
+				"fairy":
+					damge*=0.5
 		"fire":
-					#fire Attacken lvl 10	
-					pass
+			match atk_pkmn.type:
+				"fight":
+					damge*=0
+				"normal":
+					damge*=0
+				"poison":
+					damge*=0.5
+				"bug":
+					damge*=0.5
+				"dark":
+					damge*=2
+				"ghost":
+					damge*=2
 		"water":
 					#water Attacken lvl 10	
 					pass
