@@ -10,7 +10,7 @@
 [ext_resource path="res://battle/switch.gd" type="Script" id=8]
 [ext_resource path="res://battle/bag.gd" type="Script" id=9]
 
-[sub_resource type="StyleBoxFlat" id=1]
+[sub_resource type="StyleBoxFlat" id=22]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
 [node name="HBoxContainer" type="Panel"]
@@ -18,7 +18,7 @@ anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -160.0
 margin_bottom = 20.0
-custom_styles/panel = SubResource( 1 )
+custom_styles/panel = SubResource( 22 )
 
 [node name="bag" type="TextureButton" parent="."]
 margin_left = 5.0
