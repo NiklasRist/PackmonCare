@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Mastermind.png-636edd9f71335b629f25a6617dce3290.stex"
+path="res://.import/Mastermind.png-1f0f9060acf5f7fb5590a9fe070e9dca.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://packmon ---/Packmon images/Mastermind/Mastermind.png"
-dest_files=[ "res://.import/Mastermind.png-636edd9f71335b629f25a6617dce3290.stex" ]
+source_file="res://packmon/Packmon images/Mastermind/Mastermind.png"
+dest_files=[ "res://.import/Mastermind.png-1f0f9060acf5f7fb5590a9fe070e9dca.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0
