@@ -98,6 +98,12 @@ var PackimageU
 var PackhpU
 var PackepU
 
+#number of rounds
+var rounds=0
+#enemy has already attacked
+var alrdy_atk=false
+#user has already attacked
+var u_alrdy_atk=false
 #enemy attack selected
 var sel=false
 #user attack selected
@@ -279,29 +285,15 @@ func _process(_delta):
 		attack_effect(attackname)
 		attack_effect(u_attackname)
 		
-		if packmon.spd>u_packmon.spd:
-			if attack_successfull(prob[0]):
-				get_dmg(dmg, target, u_packmon, packmon, packmon.def)
-				print("Enemy!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-			if attack_successfull(prob[1]):
-				get_dmg(u_dmg, u_target, packmon, u_packmon, u_packmon.def)
-				print("User!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-		else:
-			zwsave_bool=attack_successfull(prob[1])
-			if zwsave_bool:
-				get_dmg(u_dmg, u_target, packmon, u_packmon, u_packmon.def)
-				print("User!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-			zwsave_bool=attack_successfull(prob[0])
-			if zwsave_bool:
-				get_dmg(dmg, target, u_packmon, packmon, packmon.def)
-				print("Enemy!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-			
+		alrdy_atk=!alrdy_atk
+		u_alrdy_atk=!u_alrdy_atk
 		
+	#attacking
+	if sel && rounds%2:
+			attack("Enemy")
+	if u_sel && !rounds%2:
+			attack("User")
 		
-		print(packmon.hp, " ", dmg, " ", target, "", attackname)
-		print(u_packmon.hp, " ", u_dmg, " ", u_target, "", u_attackname)
-		sel=!sel
-		u_sel=!u_sel
 	_update_packmon_data(Packname, Packattacks, Packimage, packmon.hp, Packep, PacknameU, PackattacksU, PackimageU, u_packmon.hp, PackepU)
 	if packmon.hp <= 0:
 		loaded=!loaded
@@ -395,21 +387,46 @@ func attack_effect(atknm):
 
 func get_dmg(damge, targ, pkmon, u_pkmon, def):
 	damge=type_damage(damge, u_pkmon, pkmon)
-	match targ:
-		0:
-			if (def-damge)<0:
-				pkmon.hp-=def-damge
-			else:
-				pkmon.hp-=1
-		1:
+	if damge>0:
+		match targ:
+			0:
+				if (def-damge)<0:
+					pkmon.hp-=def-damge
+				else:
+					pkmon.hp-=1
+			1:
 			#attacke fehlgeschlagen
-			pass
-		2:
-			if (def-damge)<0:
-				u_pkmon.hp-=def-damge
-			else:
-				u_pkmon.hp-=1
-	
+				pass
+			2:
+				if (def-damge)<0:
+					u_pkmon.hp-=def-damge
+				else:
+					u_pkmon.hp-=1
+
+func attack(pack):
+	var x
+	if pack=="Enemy":
+		x=0
+	else:
+		x=1
+	zwsave_bool=attack_successfull(prob[x])
+	if zwsave_bool:
+		if pack=="Enemy":
+			get_dmg(dmg, target, u_packmon, packmon, packmon.def)
+		else:
+			get_dmg(u_dmg, u_target, packmon, u_packmon, u_packmon.def)
+		print(pack, "attack successfull!")
+	else:
+		print(pack, "attack failed!")
+	if pack=="Enemy":
+		sel=!sel
+		print(packmon.hp, " ", dmg, " ", target, "", attackname)
+	else:
+		u_sel=!u_sel
+		print(u_packmon.hp, " ", u_dmg, " ", u_target, "", u_attackname)
+	rounds+=1
+		
+
 func attack_var(atkname, damge, targ, pkmon):
 	var prb
 	match atkname:
@@ -434,7 +451,7 @@ func attack_var(atkname, damge, targ, pkmon):
 			damge=scary_bite.dmgp * pkmon.atk
 			targ=scary_bite.target
 			prb=scary_bite.prob
-		"silent_battle_cry":
+		"silent battle cry":
 			damge=silent_battle_cry.dmgp * pkmon.atk
 			targ=silent_battle_cry.target
 			prb=silent_battle_cry.prob
@@ -451,6 +468,7 @@ func attack_var(atkname, damge, targ, pkmon):
 	zwsave=[damge, targ, prb]
 	
 func attack_successfull(prb):
+	#prevents bug somehow :)
 	var save = prb
 	prb = null
 	prb=save
@@ -458,6 +476,7 @@ func attack_successfull(prb):
 	num= null
 	num = rand.randf_range(0, 1)
 	print("Num: ", num)
+	
 	var wahr = !prb<num
 	match wahr:
 		true: return true
