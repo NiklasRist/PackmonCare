@@ -9,5 +9,5 @@ func _init():
 	rep=0
 	atkChange=[0.1, 0]
 	prio=10
-	target=0
+	target=2
 	changetarget=[true, false, false, false, false, false, false, false]

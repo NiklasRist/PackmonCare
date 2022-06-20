@@ -7,7 +7,7 @@ func _init():
 	ep=0
 	epRequired=12
 	type = ["psychic"]
-	attackenInBesitz=["fast punch", "", "", ""]
+	attackenInBesitz=["HP transformation", "meditation", "", ""]
 		
 	hp=47
 	spd=23

@@ -7,7 +7,7 @@ func _init():
 	ep=0
 	epRequired=12
 	type = ["electric", "water"]
-	attackenInBesitz=["fast punch", "", "", ""]
+	attackenInBesitz=["tail whip", "weaken scales", "", ""]
 	
 	hp=36
 	spd=33

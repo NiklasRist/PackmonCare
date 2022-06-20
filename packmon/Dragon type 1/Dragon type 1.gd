@@ -7,7 +7,7 @@ func _init():
 	ep=0
 	epRequired=12
 	type = ["dragon"]
-	attackenInBesitz=["fast punch", "", "", ""]
+	attackenInBesitz=["tail whip", "silent battle cry", "", ""]
 	
 	hp=33
 	spd=10
