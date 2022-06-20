@@ -82,6 +82,7 @@ var weaken_scales = weaken_scales_.new()
 var loaded=false
 var userpack=false
 var rand=RandomNumberGenerator.new()
+var timer=Timer.new()
 var num=0.0
 #enemy var
 var packmon
@@ -259,12 +260,12 @@ func _process(_delta):
 	#load user packmon
 	if !userpack:
 		#load user packmon
-		u_packmon=rabbiflaflam
-		PacknameU=rabbiflaflam.Packmonname
-		PackattacksU=rabbiflaflam.attackenInBesitz
-		PackimageU=rabbiflaflam.texture
-		PackhpU=rabbiflaflam.hp
-		PackepU=rabbiflaflam.ep
+		u_packmon=rabbiflaflam_.new()
+		PacknameU=u_packmon.Packmonname
+		PackattacksU=u_packmon.attackenInBesitz
+		PackimageU=u_packmon.texture
+		PackhpU=u_packmon.hp
+		PackepU=u_packmon.ep
 		_set_user_packmon_data(PacknameU, PackattacksU, PackimageU, PackhpU, PackepU)
 		userpack=true
 	#enemy selects attack 
@@ -298,6 +299,7 @@ func _process(_delta):
 	if packmon.hp <= 0:
 		loaded=!loaded
 		u_packmon.levelup()
+		get_node("BackpacksTeam/PackmonInfo").get_node("HP").max_value = u_packmon.hp
 		print("Level: ", u_packmon.lvl)
 	if u_packmon.hp <= 0:
 		get_tree().change_scene("res://Main.tscn")
@@ -425,7 +427,8 @@ func attack(pack):
 		u_sel=!u_sel
 		print(u_packmon.hp, " ", u_dmg, " ", u_target, "", u_attackname)
 	rounds+=1
-		
+	
+	
 
 func attack_var(atkname, damge, targ, pkmon):
 	var prb
