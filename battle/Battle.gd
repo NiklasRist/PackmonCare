@@ -88,7 +88,7 @@ var packmon
 var Packname
 var Packattacks=["", "", "", ""]
 var Packimage
-var Packhp
+var Packhp=0
 var Packep
 #user var
 var u_packmon
@@ -131,139 +131,28 @@ var zwsave_bool = false
 var prob = [0, 0]
 
 #fist number is change of user sp, second of enemy sp
-var atkChange=[0, 0]
-var defChange=[0, 0]
-var spdChange=[0, 0]
-var hpChange=[0, 0]
+var atkChange=[0.1, 0.1]
+var defChange=[0.1, 0.1]
+var spdChange=[0.1, 0.1]
+var hpChange=[0.1, 0.1]
+#sp changes applied????????
+var sp_change_applied=false
+#enemy already gernerated
+var alrdy_gen=false
 
 func _process(_delta):
 	if Input.is_action_pressed("ui_cancel"):
 	  get_tree().quit()
 	#load random enemy packmon
 	if !loaded: #selects enemy packmon
+		atkChange=[0.0, 0.0]
+		defChange=[0.0, 0.0]
+		spdChange=[0.0, 0.0]
+		hpChange=[0.0, 0.0]
 		rand.randomize()
 		num = rand.randi_range(0, 16)
-		match num:
-			0:
-				packmon=dorie
-				Packname=dorie.Packmonname
-				Packattacks=dorie.attackenInBesitz
-				Packimage=dorie.texture
-				Packhp=dorie.hp
-				Packep=dorie.ep
-			1:	
-				packmon=dragon
-				Packname=dragon.Packmonname
-				Packattacks=dragon.attackenInBesitz
-				Packimage=dragon.texture
-				Packhp=dragon.hp
-				Packep=dragon.ep
-			2:
-				packmon=eleceel
-				Packname=eleceel.Packmonname
-				Packattacks=eleceel.attackenInBesitz
-				Packimage=eleceel.texture
-				Packhp=eleceel.hp
-				Packep=eleceel.ep
-			3:
-				packmon=flacier
-				Packname=flacier.Packmonname
-				Packattacks=flacier.attackenInBesitz
-				Packimage=flacier.texture
-				Packhp=flacier.hp
-				Packep=flacier.ep
-			4:
-				packmon=gavlarnton
-				Packname=gavlarnton.Packmonname
-				Packattacks=gavlarnton.attackenInBesitz
-				Packimage=gavlarnton.texture
-				Packhp=gavlarnton.hp
-				Packep=gavlarnton.ep
-			5:
-				packmon=golec
-				Packname=golec.Packmonname
-				Packattacks=golec.attackenInBesitz
-				Packimage=golec.texture
-				Packhp=golec.hp
-				Packep=golec.ep
-			6:
-				packmon=harmopla
-				Packname=harmopla.Packmonname
-				Packattacks=harmopla.attackenInBesitz
-				Packimage=harmopla.texture
-				Packhp=harmopla.hp
-				Packep=harmopla.ep
-			7:
-				packmon=mastermind
-				Packname=mastermind.Packmonname
-				Packattacks=mastermind.attackenInBesitz
-				Packimage=mastermind.texture
-				Packhp=mastermind.hp
-				Packep=mastermind.ep
-			8:
-				packmon=mothragon
-				Packname=mothragon.Packmonname
-				Packattacks=mothragon.attackenInBesitz
-				Packimage=mothragon.texture
-				Packhp=mothragon.hp
-				Packep=mothragon.ep
-			9:
-				packmon=nightmare
-				Packname=nightmare.Packmonname
-				Packattacks=nightmare.attackenInBesitz
-				Packimage=nightmare.texture
-				Packhp=nightmare.hp
-				Packep=nightmare.ep
-			10:
-				packmon=nomnom
-				Packname=nomnom.Packmonname
-				Packattacks=nomnom.attackenInBesitz
-				Packimage=nomnom.texture
-				Packhp=nomnom.hp
-				Packep=nomnom.ep
-			11:
-				packmon=piranha
-				Packname=piranha.Packmonname
-				Packattacks=piranha.attackenInBesitz
-				Packimage=piranha.texture
-				Packhp=piranha.hp
-				Packep=piranha.ep
-			12:
-				packmon=poiwesa
-				Packname=poiwesa.Packmonname
-				Packattacks=poiwesa.attackenInBesitz
-				Packimage=poiwesa.texture
-				Packhp=poiwesa.hp
-				Packep=poiwesa.ep
-			13:
-				packmon=rabbiflaflam
-				Packname=rabbiflaflam.Packmonname
-				Packattacks=rabbiflaflam.attackenInBesitz
-				Packimage=rabbiflaflam.texture
-				Packhp=rabbiflaflam.hp
-				Packep=rabbiflaflam.ep
-			14:
-				packmon=torblast
-				Packname=torblast.Packmonname
-				Packattacks=torblast.attackenInBesitz
-				Packimage=torblast.texture
-				Packhp=torblast.hp
-				Packep=torblast.ep
-			15:
-				packmon=voiradon
-				Packname=voiradon.Packmonname
-				Packattacks=voiradon.attackenInBesitz
-				Packimage=voiradon.texture
-				Packhp=voiradon.hp
-				Packep=voiradon.ep
-			16:
-				packmon=blazesect
-				Packname=blazesect.Packmonname
-				Packattacks=blazesect.attackenInBesitz
-				Packimage=blazesect.texture
-				Packhp=blazesect.hp
-				Packep=blazesect.ep
-				
+		if !alrdy_gen:
+			get_enemy(num)
 		_set_enemy_packmon_data(Packname, Packattacks, Packimage, Packhp, Packep)
 		loaded=true
 	#load user packmon
@@ -301,19 +190,28 @@ func _process(_delta):
 	#attacking
 	if sel && rounds%2:
 			attack("Enemy")
+			apply_sp_changes(0,1)
+			clear_sp_changes()
 	if u_sel && !rounds%2:
 			attack("User")
-
-
-		
-	_update_packmon_data(Packname, Packattacks, Packimage, packmon.hp, Packep, PacknameU, PackattacksU, PackimageU, u_packmon.hp, PackepU)
+			apply_sp_changes(1,0)
+			clear_sp_changes()
 	if packmon.hp <= 0:
-		loaded=!loaded
-		u_packmon.levelup()
-		get_node("BackpacksTeam/PackmonInfo").get_node("HP").max_value = u_packmon.hp
+		#solves create enemy bug, prob bc no func is called so changes are permanent
+		packmon.hp=25
+		loaded=false
+		#u_packmon.levelup()
+		#get_node("BackpacksTeam/PackmonInfo").get_node("HP").max_value = u_packmon.hp
 		print("Level: ", u_packmon.lvl)
+		
+		num = rand.randi_range(0, 16)
+		get_enemy(num)
+		alrdy_gen=true
 	if u_packmon.hp <= 0:
 		get_tree().change_scene("res://Main.tscn")
+	
+	_update_packmon_data(Packname, Packattacks, Packimage, packmon.hp, Packep, PacknameU, PackattacksU, PackimageU, u_packmon.hp, PackepU)
+	
 	
 	
 
@@ -404,15 +302,17 @@ func get_dmg(damge, targ, pkmon, u_pkmon, def):
 		match targ:
 			0:
 				if (def-damge)<0:
-					pkmon.hp-=def-damge
+					pkmon.hp+=round(def-damge)
 				else:
 					pkmon.hp-=1
+
+				
 			1:
 			#attacke fehlgeschlagen
 				pass
 			2:
 				if (def-damge)<0:
-					u_pkmon.hp-=def-damge
+					u_pkmon.hp+=round(def-damge)
 				else:
 					u_pkmon.hp-=1
 
@@ -425,9 +325,9 @@ func attack(pack):
 	zwsave_bool=attack_successfull(prob[x])
 	if zwsave_bool:
 		if pack=="Enemy":
-			get_dmg(dmg, target, u_packmon, packmon, packmon.def)
+			get_dmg(dmg, target, u_packmon, packmon, u_packmon.def)
 		else:
-			get_dmg(u_dmg, u_target, packmon, u_packmon, u_packmon.def)
+			get_dmg(u_dmg, u_target, packmon, u_packmon, packmon.def)
 		print(pack, "attack successfull!")
 	else:
 		print(pack, "attack failed!")
@@ -443,6 +343,7 @@ func attack(pack):
 
 func attack_var(atkname, damge, targ, pkmon, check_enemy):
 	var prb
+	var i
 	match atkname:
 		"fast punch":
 			damge=fastpunch.dmgp * pkmon.atk
@@ -450,96 +351,112 @@ func attack_var(atkname, damge, targ, pkmon, check_enemy):
 			prb=fastpunch.prob
 			if check_enemy:
 				atk_prio=fastpunch.prio
+				i=0
 			else:
 				u_atk_prio=fastpunch.prio
-			atkChange=fastpunch.atkChange
-			defChange=fastpunch.defChange
-			spdChange=fastpunch.spdChange
-			hpChange=fastpunch.hpChange
+				i=1
+			atkChange=[0,0]
+			defChange=[0,0]
+			spdChange=[0,0]
+			hpChange=[0,0]
 		"hardening":
 			damge=hardening.dmgp * pkmon.atk
 			targ=hardening.target
 			prb=hardening.prob
 			if check_enemy:
 				atk_prio=hardening.prio
+				i=0
 			else:
 				u_atk_prio=hardening.prio
-			atkChange=fastpunch.atkChange
-			defChange=fastpunch.defChange
-			spdChange=fastpunch.spdChange
-			hpChange=fastpunch.hpChange
+				i=1
+			atkChange=[0,0]
+			defChange=hardening.defChange
+			spdChange=[0,0]
+			hpChange=[0,0]
 		"HP transformation":
 			damge=hp_transformation.dmgp * pkmon.atk
 			targ=hp_transformation.target
 			prb=hp_transformation.prob
 			if check_enemy:
 				atk_prio=hp_transformation.prio
+				i=0
 			else:
 				u_atk_prio=hp_transformation.prio
-			atkChange=fastpunch.atkChange
-			defChange=fastpunch.defChange
-			spdChange=fastpunch.spdChange
-			hpChange=fastpunch.hpChange
+				i=1
+			atkChange=[0,0]
+			defChange=[0,0]
+			spdChange=[0,0]
+			hpChange=hp_transformation.hpChange
 		"meditation":
 			damge=meditation.dmgp * pkmon.atk
 			targ=meditation.target
 			prb=meditation.prob
 			if check_enemy:
 				atk_prio=meditation.prio
+				i=0
 			else:
 				u_atk_prio=meditation.prio
-			atkChange=fastpunch.atkChange
-			defChange=fastpunch.defChange
-			spdChange=fastpunch.spdChange
-			hpChange=fastpunch.hpChange
+				i=1
+			atkChange=meditation.atkChange
+			defChange=[0,0]
+			spdChange=[0,0]
+			hpChange=[0,0]
 		"scary bite":
 			damge=scary_bite.dmgp * pkmon.atk
 			targ=scary_bite.target
 			prb=scary_bite.prob
 			if check_enemy:
 				atk_prio=scary_bite.prio
+				i=0
 			else:
 				u_atk_prio=scary_bite.prio
-			atkChange=fastpunch.atkChange
-			defChange=fastpunch.defChange
-			spdChange=fastpunch.spdChange
-			hpChange=fastpunch.hpChange
+				i=1
+			atkChange=[0,0]
+			defChange=[0,0]
+			spdChange=[0,0]
+			hpChange=[0,0]
 		"silent battle cry":
 			damge=silent_battle_cry.dmgp * pkmon.atk
 			targ=silent_battle_cry.target
 			prb=silent_battle_cry.prob
 			if check_enemy:
 				atk_prio=silent_battle_cry.prio
+				i=0
 			else:
 				u_atk_prio=silent_battle_cry.prio
-			atkChange=fastpunch.atkChange
-			defChange=fastpunch.defChange
-			spdChange=fastpunch.spdChange
-			hpChange=fastpunch.hpChange
+				i=1
+			atkChange=silent_battle_cry.atkChange
+			defChange=[0,0]
+			spdChange=[0,0]
+			hpChange=[0,0]
 		"tail whip":
 			damge=tail_whip.dmgp * pkmon.atk
 			targ=tail_whip.target
 			prb=tail_whip.prob
 			if check_enemy:
 				atk_prio=tail_whip.prio
+				i=0
 			else:
 				u_atk_prio=tail_whip.prio
-			atkChange=fastpunch.atkChange
-			defChange=fastpunch.defChange
-			spdChange=fastpunch.spdChange
-			hpChange=fastpunch.hpChange
+				i=1
+			atkChange=tail_whip.atkChange
+			defChange=[0,0]
+			spdChange=[0,0]
+			hpChange=[0,0]
 		"weaken scales":
 			damge=weaken_scales.dmgp * pkmon.atk
 			targ=weaken_scales.target
 			prb=weaken_scales.prob
 			if check_enemy:
 				atk_prio=weaken_scales.prio
+				i=0
 			else:
 				u_atk_prio=weaken_scales.prio
-			atkChange=fastpunch.atkChange
-			defChange=fastpunch.defChange
-			spdChange=fastpunch.spdChange
-			hpChange=fastpunch.hpChange
+				i=1
+			atkChange=[0,0]
+			defChange=weaken_scales.defChange
+			spdChange=[0,0]
+			hpChange=[0,0]
 	#for debugging
 	print(atkname, " ", damge, " ", targ, " ", pkmon)
 	zwsave=[damge, targ, prb]
@@ -745,13 +662,166 @@ func type_damage(damge, atk_pkmn, def_pkmn):
 					pass
 	return damge
 
-func apply_sp_changes():
-	packmon.atk+=packmon.atk*atkChange[0]
-	u_packmon.atk+=u_packmon.atk*atkChange[1]
-	packmon.def+=packmon.def*defChange[0]
-	u_packmon.def+=u_packmon.def*defChange[1]
-	packmon.spd+=packmon.spd*spdChange[0]
-	u_packmon.spd+=u_packmon.spd*spdChange[1]
-	packmon.hp+=packmon.hp*hpChange[0]
-	u_packmon.hp+=u_packmon.hp*hpChange[1]
-	get_node("BackpacksTeam/PackmonInfo").get_node("HP").max_value +=u_packmon.hp*hpChange[1]
+func apply_sp_changes(enemynum,usernum):
+	if round(packmon.atk*atkChange[enemynum])<=5:
+		packmon.atk+=round(packmon.atk*atkChange[enemynum])
+	else:
+		packmon.atk+=5
+	if round(u_packmon.atk*atkChange[usernum])<=5:
+		u_packmon.atk+=round(u_packmon.atk*atkChange[usernum])
+	else:
+		u_packmon.atk+=5
+	if round(packmon.def*defChange[enemynum])<=5:
+		packmon.def+=round(packmon.def*defChange[enemynum])
+	else:
+		packmon.def+=5
+	if round(u_packmon.def*defChange[usernum])<=5:
+		u_packmon.def+=round(u_packmon.def*defChange[usernum])
+	else:
+		u_packmon.def+=5
+	if round(packmon.spd*spdChange[enemynum])<=5:
+		packmon.spd+=round(packmon.spd*spdChange[enemynum])
+	else:
+		packmon.spd+=5
+	if round(u_packmon.spd*spdChange[usernum])<=5:
+		u_packmon.spd+=round(u_packmon.spd*spdChange[usernum])
+	else: 
+		u_packmon.spd+=5
+	if round(packmon.hp*hpChange[enemynum])<=5:
+		packmon.hp+=round(packmon.hp*hpChange[enemynum])
+	else:
+		packmon.hp+=5
+	if round(u_packmon.hp*hpChange[usernum])<=5:
+		u_packmon.hp+=round(u_packmon.hp*hpChange[usernum])
+	else:
+		u_packmon.hp+=5
+	get_node("BackpacksTeam/PackmonInfo").get_node("HP").max_value +=round(u_packmon.hp*hpChange[1])
+	print(Packname, " atk: ", packmon.atk, " def: ", packmon.def, " spd: ", packmon.spd, " hp: ", packmon.hp, "     ", float(packmon.atk*atkChange[enemynum]))
+	print(PacknameU, " atk: ", u_packmon.atk, " def: ", u_packmon.def, " spd: ", u_packmon.spd, " hp: ", u_packmon.hp, "     ", float(u_packmon.atk*atkChange[usernum]))
+	
+func clear_sp_changes():
+	atkChange=[0, 0]
+	defChange=[0, 0]
+	spdChange=[0, 0]
+	hpChange=[0, 0]
+func get_enemy(num):
+	match num:
+			0:
+				packmon=dorie
+				Packname=dorie.Packmonname
+				Packattacks=dorie.attackenInBesitz
+				Packimage=dorie.texture
+				Packhp=dorie.hp
+				Packep=dorie.ep
+			1:	
+				packmon=dragon
+				Packname=dragon.Packmonname
+				Packattacks=dragon.attackenInBesitz
+				Packimage=dragon.texture
+				Packhp=dragon.hp
+				Packep=dragon.ep
+			2:
+				packmon=eleceel
+				Packname=eleceel.Packmonname
+				Packattacks=eleceel.attackenInBesitz
+				Packimage=eleceel.texture
+				Packhp=eleceel.hp
+				Packep=eleceel.ep
+			3:
+				packmon=flacier
+				Packname=flacier.Packmonname
+				Packattacks=flacier.attackenInBesitz
+				Packimage=flacier.texture
+				Packhp=flacier.hp
+				Packep=flacier.ep
+			4:
+				packmon=gavlarnton
+				Packname=gavlarnton.Packmonname
+				Packattacks=gavlarnton.attackenInBesitz
+				Packimage=gavlarnton.texture
+				Packhp=gavlarnton.hp
+				Packep=gavlarnton.ep
+			5:
+				packmon=golec
+				Packname=golec.Packmonname
+				Packattacks=golec.attackenInBesitz
+				Packimage=golec.texture
+				Packhp=golec.hp
+				Packep=golec.ep
+			6:
+				packmon=harmopla
+				Packname=harmopla.Packmonname
+				Packattacks=harmopla.attackenInBesitz
+				Packimage=harmopla.texture
+				Packhp=harmopla.hp
+				Packep=harmopla.ep
+			7:
+				packmon=mastermind
+				Packname=mastermind.Packmonname
+				Packattacks=mastermind.attackenInBesitz
+				Packimage=mastermind.texture
+				Packhp=mastermind.hp
+				Packep=mastermind.ep
+			8:
+				packmon=mothragon
+				Packname=mothragon.Packmonname
+				Packattacks=mothragon.attackenInBesitz
+				Packimage=mothragon.texture
+				Packhp=mothragon.hp
+				Packep=mothragon.ep
+			9:
+				packmon=nightmare
+				Packname=nightmare.Packmonname
+				Packattacks=nightmare.attackenInBesitz
+				Packimage=nightmare.texture
+				Packhp=nightmare.hp
+				Packep=nightmare.ep
+			10:
+				packmon=nomnom
+				Packname=nomnom.Packmonname
+				Packattacks=nomnom.attackenInBesitz
+				Packimage=nomnom.texture
+				Packhp=nomnom.hp
+				Packep=nomnom.ep
+			11:
+				packmon=piranha
+				Packname=piranha.Packmonname
+				Packattacks=piranha.attackenInBesitz
+				Packimage=piranha.texture
+				Packhp=piranha.hp
+				Packep=piranha.ep
+			12:
+				packmon=poiwesa
+				Packname=poiwesa.Packmonname
+				Packattacks=poiwesa.attackenInBesitz
+				Packimage=poiwesa.texture
+				Packhp=poiwesa.hp
+				Packep=poiwesa.ep
+			13:
+				packmon=rabbiflaflam
+				Packname=rabbiflaflam.Packmonname
+				Packattacks=rabbiflaflam.attackenInBesitz
+				Packimage=rabbiflaflam.texture
+				Packhp=rabbiflaflam.hp
+				Packep=rabbiflaflam.ep
+			14:
+				packmon=torblast
+				Packname=torblast.Packmonname
+				Packattacks=torblast.attackenInBesitz
+				Packimage=torblast.texture
+				Packhp=torblast.hp
+				Packep=torblast.ep
+			15:
+				packmon=voiradon
+				Packname=voiradon.Packmonname
+				Packattacks=voiradon.attackenInBesitz
+				Packimage=voiradon.texture
+				Packhp=voiradon.hp
+				Packep=voiradon.ep
+			16:
+				packmon=blazesect
+				Packname=blazesect.Packmonname
+				Packattacks=blazesect.attackenInBesitz
+				Packimage=blazesect.texture
+				Packhp=blazesect.hp
+				Packep=blazesect.ep
