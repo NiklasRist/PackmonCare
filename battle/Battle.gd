@@ -82,7 +82,6 @@ var weaken_scales = weaken_scales_.new()
 var loaded=false
 var userpack=false
 var rand=RandomNumberGenerator.new()
-var timer=Timer.new()
 var num=0.0
 #enemy var
 var packmon
@@ -113,6 +112,10 @@ var u_sel=false
 var attackname
 #user attackname
 var u_attackname
+#enemy attackpriority
+var atk_prio=10
+#user attackpriority
+var u_atk_prio=10
 
 #attack var enemy
 var dmg
@@ -126,6 +129,12 @@ var zwsave = [0, 0, 0] #float
 var zwsave_bool = false
 #probability [prob, u_prob]
 var prob = [0, 0]
+
+#fist number is change of user sp, second of enemy sp
+var atkChange=[0, 0]
+var defChange=[0, 0]
+var spdChange=[0, 0]
+var hpChange=[0, 0]
 
 func _process(_delta):
 	if Input.is_action_pressed("ui_cancel"):
@@ -274,11 +283,11 @@ func _process(_delta):
 	#attack effects
 	if sel && u_sel:
 		
-		attack_var(attackname, dmg, target, packmon)
+		attack_var(attackname, dmg, target, packmon, false)
 		dmg=zwsave[0]
 		target=zwsave[1]
 		prob[0]= zwsave[2]
-		attack_var(u_attackname, u_dmg, u_target, u_packmon)
+		attack_var(u_attackname, u_dmg, u_target, u_packmon, true)
 		u_dmg=zwsave[0]
 		u_target=zwsave[1]
 		prob[1]= zwsave[2]
@@ -294,6 +303,8 @@ func _process(_delta):
 			attack("Enemy")
 	if u_sel && !rounds%2:
 			attack("User")
+
+
 		
 	_update_packmon_data(Packname, Packattacks, Packimage, packmon.hp, Packep, PacknameU, PackattacksU, PackimageU, u_packmon.hp, PackepU)
 	if packmon.hp <= 0:
@@ -430,42 +441,105 @@ func attack(pack):
 	
 	
 
-func attack_var(atkname, damge, targ, pkmon):
+func attack_var(atkname, damge, targ, pkmon, check_enemy):
 	var prb
 	match atkname:
 		"fast punch":
 			damge=fastpunch.dmgp * pkmon.atk
 			targ=fastpunch.target
 			prb=fastpunch.prob
+			if check_enemy:
+				atk_prio=fastpunch.prio
+			else:
+				u_atk_prio=fastpunch.prio
+			atkChange=fastpunch.atkChange
+			defChange=fastpunch.defChange
+			spdChange=fastpunch.spdChange
+			hpChange=fastpunch.hpChange
 		"hardening":
 			damge=hardening.dmgp * pkmon.atk
 			targ=hardening.target
 			prb=hardening.prob
+			if check_enemy:
+				atk_prio=hardening.prio
+			else:
+				u_atk_prio=hardening.prio
+			atkChange=fastpunch.atkChange
+			defChange=fastpunch.defChange
+			spdChange=fastpunch.spdChange
+			hpChange=fastpunch.hpChange
 		"HP transformation":
 			damge=hp_transformation.dmgp * pkmon.atk
 			targ=hp_transformation.target
 			prb=hp_transformation.prob
+			if check_enemy:
+				atk_prio=hp_transformation.prio
+			else:
+				u_atk_prio=hp_transformation.prio
+			atkChange=fastpunch.atkChange
+			defChange=fastpunch.defChange
+			spdChange=fastpunch.spdChange
+			hpChange=fastpunch.hpChange
 		"meditation":
 			damge=meditation.dmgp * pkmon.atk
 			targ=meditation.target
 			prb=meditation.prob
-			print("88888888    ", meditation.dmgp, "     8888888888")
+			if check_enemy:
+				atk_prio=meditation.prio
+			else:
+				u_atk_prio=meditation.prio
+			atkChange=fastpunch.atkChange
+			defChange=fastpunch.defChange
+			spdChange=fastpunch.spdChange
+			hpChange=fastpunch.hpChange
 		"scary bite":
 			damge=scary_bite.dmgp * pkmon.atk
 			targ=scary_bite.target
 			prb=scary_bite.prob
+			if check_enemy:
+				atk_prio=scary_bite.prio
+			else:
+				u_atk_prio=scary_bite.prio
+			atkChange=fastpunch.atkChange
+			defChange=fastpunch.defChange
+			spdChange=fastpunch.spdChange
+			hpChange=fastpunch.hpChange
 		"silent battle cry":
 			damge=silent_battle_cry.dmgp * pkmon.atk
 			targ=silent_battle_cry.target
 			prb=silent_battle_cry.prob
+			if check_enemy:
+				atk_prio=silent_battle_cry.prio
+			else:
+				u_atk_prio=silent_battle_cry.prio
+			atkChange=fastpunch.atkChange
+			defChange=fastpunch.defChange
+			spdChange=fastpunch.spdChange
+			hpChange=fastpunch.hpChange
 		"tail whip":
 			damge=tail_whip.dmgp * pkmon.atk
 			targ=tail_whip.target
 			prb=tail_whip.prob
+			if check_enemy:
+				atk_prio=tail_whip.prio
+			else:
+				u_atk_prio=tail_whip.prio
+			atkChange=fastpunch.atkChange
+			defChange=fastpunch.defChange
+			spdChange=fastpunch.spdChange
+			hpChange=fastpunch.hpChange
 		"weaken scales":
 			damge=weaken_scales.dmgp * pkmon.atk
 			targ=weaken_scales.target
 			prb=weaken_scales.prob
+			if check_enemy:
+				atk_prio=weaken_scales.prio
+			else:
+				u_atk_prio=weaken_scales.prio
+			atkChange=fastpunch.atkChange
+			defChange=fastpunch.defChange
+			spdChange=fastpunch.spdChange
+			hpChange=fastpunch.hpChange
 	#for debugging
 	print(atkname, " ", damge, " ", targ, " ", pkmon)
 	zwsave=[damge, targ, prb]
@@ -670,3 +744,14 @@ func type_damage(damge, atk_pkmn, def_pkmn):
 					#fairy Attacken lvl 10		
 					pass
 	return damge
+
+func apply_sp_changes():
+	packmon.atk+=packmon.atk*atkChange[0]
+	u_packmon.atk+=u_packmon.atk*atkChange[1]
+	packmon.def+=packmon.def*defChange[0]
+	u_packmon.def+=u_packmon.def*defChange[1]
+	packmon.spd+=packmon.spd*spdChange[0]
+	u_packmon.spd+=u_packmon.spd*spdChange[1]
+	packmon.hp+=packmon.hp*hpChange[0]
+	u_packmon.hp+=u_packmon.hp*hpChange[1]
+	get_node("BackpacksTeam/PackmonInfo").get_node("HP").max_value +=u_packmon.hp*hpChange[1]
