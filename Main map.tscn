@@ -663,17 +663,7 @@ func changeToBattle():
 script = SubResource( 32 )
 
 [sub_resource type="GDScript" id=33]
-script/source = "extends TileMap
-func changeToBattle():
-	var rng = RandomNumberGenerator.new()
-	rng.randomize()
-	var battleProb = rng.randi_range(1,1000)
-	if(battleProb<4):
-		return true
-	else: 
-		return false
-func gimmeCoords():
-	pass
+script/source = "
 "
 
 [node name="Main map" type="Node2D"]
@@ -706,6 +696,7 @@ __meta__ = {
 }
 
 [node name="Area2D" type="Area2D" parent="."]
+z_index = 9
 script = ExtResource( 10 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]

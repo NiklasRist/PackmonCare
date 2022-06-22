@@ -16,9 +16,10 @@ func _ready():
 #	pass
 
 
-func _on_Area2D_body_entered(body):
-	get_parent().getnode("Player").inGrass = true
+func _on_Area2D_body_entered():
+	#get_node(nodepath).inGrass = true
+	return true
 
-
-func _on_Area2D_body_exited(body):
-	get_parent().getnode("Player").inGrass = false
+func _on_Area2D_body_exited():
+	#get_node(nodepath).inGrass = false
+	return false

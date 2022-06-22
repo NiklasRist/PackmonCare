@@ -1,15 +1,20 @@
 extends KinematicBody2D
 var rng = RandomNumberGenerator.new()
+const Area2d_ = preload("res://TallGrass.gd")
+var _Area2D = Area2d_.new()
 	
-var inGrass = false
+export var inGrass:bool
 
 var vel = Vector2(0,0)
 var mov = Vector2(0,0)
 var animationPlayer = null
 
+func _init():
+	inGrass = false
+	
 func _ready():
 	animationPlayer = $PlayerAnimation
-
+	
 func _process(_delta):
 	set_physics_process(true)
 	if Input.is_action_pressed("ui_left"):
@@ -25,8 +30,10 @@ func _process(_delta):
 	if Input.is_action_pressed("ui_up"):
 		mov+=Vector2(0, -1)
 		animationPlayer.play("playerMovingUp")
-		if inGrass:
+		
+		if _Area2D._on_Area2D_body_entered()&&!_Area2D._on_Area2D_body_exited():	#CheckEncounter()
 			checkEncounter()
+			
 	if Input.is_action_pressed("ui_down"):
 		mov+=Vector2(0, 1)
 		animationPlayer.play("playerMovingDown")
@@ -47,7 +54,7 @@ func _process(_delta):
 	
 func checkEncounter():
 	rng.randomize()
-	var battleProb = rng.randi_range(1,1000)
+	var battleProb = rng.randi_range(1,600)
 	if(battleProb<4):
 		get_tree().change_scene("res://battle/battle/Battle.tscn")
 	
