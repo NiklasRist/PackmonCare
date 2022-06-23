@@ -78,6 +78,8 @@ var tail_whip = tail_whip_.new()
 const weaken_scales_ = preload("res://packmon/attacken/basic/weaken scales.gd")
 var weaken_scales = weaken_scales_.new()
 
+const player_=preload("res://player/player.gd")
+var player = player_.new()
 
 var loaded=false
 var userpack=false
@@ -90,6 +92,7 @@ var Packattacks=["", "", "", ""]
 var Packimage
 var Packhp=0
 var Packep
+var Packlvl=1
 #user var
 var u_packmon
 var PacknameU
@@ -231,7 +234,7 @@ func _set_enemy_packmon_data(name, attacks, image, hp, ep):
 
 func _set_user_packmon_data(name, attacks, image, hp, ep):
 	#packmon enemy info
-	get_node("BackpacksTeam/PackmonInfo").get_node("Name").text = name
+	get_node("BackpacksTeam/PackmonInfo").get_node("Name").text = str(player.packmon_space[0])
 	get_node("BackpacksTeam/PackmonInfo").get_node("HP").max_value = hp
 	get_node("BackpacksTeam/PackmonInfo").get_node("HP").value = hp
 	get_node("BackpacksTeam/PackmonInfo").get_node("HP").get_node("HPNumber").text = str(hp)
@@ -256,6 +259,7 @@ func _update_packmon_data(name, attacks, image, hp, ep, nameU, attacksU, imageU,
 	get_node("BackpacksTeam/PackmonInfo").get_node("HP").value = hpU
 	get_node("BackpacksTeam/PackmonInfo").get_node("HP").get_node("HPNumber").text = str(hpU)
 	get_node("BackpacksTeam/PackmonInfo").get_node("EP").value = epU
+	u_packmon.lvl=player.packmon_space[0][0]
 
 func _on_Button_pressed():
 	if sel:
