@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://packmon/Golec/golec.gd" type="Script" id=1]
+[ext_resource path="res://packmon/Packmon images/Golec/Golec.png" type="Texture" id=2]
+
+[node name="golec" type="Node2D"]
+script = ExtResource( 1 )
+onLevelupHp = 33
+onLevelupSpd = 27
+onLevelupAtk = 12
+onLevelupDef = 28
+epRequired = 12
+lvl = 1
+hp = 30
+spd = 28
+atk = 12
+def = 30
+texture = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
