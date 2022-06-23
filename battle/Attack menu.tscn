@@ -1,8 +1,6 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://battle/Controll Buttons.tscn" type="PackedScene" id=1]
-[ext_resource path="res://battle/Label.gd" type="Script" id=2]
-[ext_resource path="res://dpcomic (1).ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.0745098, 0.0745098, 0.0745098, 0.733333 )
@@ -19,9 +17,6 @@ bg_color = Color( 0.6, 0.6, 0.6, 0 )
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.603922, 0.564706, 0.545098, 1 )
 
-[sub_resource type="DynamicFont" id=19]
-font_data = ExtResource( 3 )
-
 [sub_resource type="StyleBoxFlat" id=10]
 bg_color = Color( 0.603922, 0.564706, 0.545098, 1 )
 
@@ -33,9 +28,6 @@ bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.603922, 0.564706, 0.545098, 1 )
-
-[sub_resource type="DynamicFont" id=20]
-font_data = ExtResource( 3 )
 
 [sub_resource type="StyleBoxFlat" id=13]
 bg_color = Color( 0.603922, 0.564706, 0.545098, 1 )
@@ -49,9 +41,6 @@ bg_color = Color( 0.6, 0.6, 0.6, 0 )
 [sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0.603922, 0.564706, 0.545098, 1 )
 
-[sub_resource type="DynamicFont" id=21]
-font_data = ExtResource( 3 )
-
 [sub_resource type="StyleBoxFlat" id=16]
 bg_color = Color( 0.603922, 0.564706, 0.545098, 1 )
 
@@ -63,9 +52,6 @@ bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
 [sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0.603922, 0.564706, 0.545098, 1 )
-
-[sub_resource type="DynamicFont" id=22]
-font_data = ExtResource( 3 )
 
 [node name="Panel" type="Panel"]
 anchor_left = 0.5
@@ -93,11 +79,9 @@ margin_left = -45.5
 margin_right = 46.5
 margin_bottom = 14.0
 size_flags_stretch_ratio = 0.0
-custom_fonts/font = SubResource( 19 )
 text = "Attack 1/1"
 align = 1
 valign = 1
-script = ExtResource( 2 )
 
 [node name="Button2" type="Button" parent="."]
 anchor_left = 1.0
@@ -114,7 +98,6 @@ custom_styles/normal = SubResource( 3 )
 [node name="Label" type="Label" parent="Button2"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = SubResource( 20 )
 text = "Attack 1/1"
 align = 1
 valign = 1
@@ -134,7 +117,6 @@ custom_styles/normal = SubResource( 4 )
 [node name="Label" type="Label" parent="Button3"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = SubResource( 21 )
 text = "Attack 1/1"
 align = 1
 valign = 1
@@ -156,7 +138,6 @@ custom_styles/normal = SubResource( 5 )
 [node name="Label" type="Label" parent="Button4"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = SubResource( 22 )
 text = "Attack 1/1"
 align = 1
 valign = 1
