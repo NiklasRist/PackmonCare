@@ -4,7 +4,7 @@ func _process(_delta):
 	if Input.is_action_pressed("ui_cancel"):
 	  get_tree().quit()
 
-const slots = preload("res://inventory/slot1.gd")
+const slots = preload("res://inventory/slot code/slot1.gd")
 onready var inventorySlots = $ScrollContainer/grid
 var AlreadyItem = null
 var rightClickVisible
