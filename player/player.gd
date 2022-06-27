@@ -10,7 +10,7 @@ var mov = Vector2(0,0)
 var animationPlayer = null
 
 #space to store packmon data
-var packmon_space=[["Rabbiflaflam", "packmon_1", "packmon_2", "packmon_3", "packmon_4", "packmon_5"], ["1", "lvl_packmon_1", "lvl_packmon_2", "lvl_packmon_3", "lvl_packmon_4", "lvl_packmon_5"], ["attack_packmon_0", "attack_packmon_2", "attack_packmon_3", "attack_packmon_4"]]
+var packmon_space=[["Rabbiflaflam", "packmon_1", "packmon_2", "packmon_3", "packmon_4", "packmon_5"], ["1", "lvl_packmon_1", "lvl_packmon_2", "lvl_packmon_3", "lvl_packmon_4", "lvl_packmon_5"], [["fast punch", "meditation", "", ""], "attack_packmon_2", "attack_packmon_3", "attack_packmon_4"]]
 #space to store items
 var item_space=[]
 
