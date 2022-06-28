@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Mothragon, Boden, Käfer.png-f47b69c8151b4a883500a0b17fbb19f9.stex"
+path="res://.import/Mothragon, Boden, Käfer.png-9c30eb3272303bb6c187bac5c8201b7e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://packmon ---/Packmon images/Mothragon/Mothragon, Boden, Käfer.png"
-dest_files=[ "res://.import/Mothragon, Boden, Käfer.png-f47b69c8151b4a883500a0b17fbb19f9.stex" ]
+source_file="res://packmon/Packmon images/Mothragon/Mothragon, Boden, Käfer.png"
+dest_files=[ "res://.import/Mothragon, Boden, Käfer.png-9c30eb3272303bb6c187bac5c8201b7e.stex" ]
 
 [params]
 

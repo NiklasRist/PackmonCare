@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Gavlarnton.png-7b7e7fae4650ea6dc6e445d6378da2df.stex"
+path="res://.import/Gavlarnton.png-012f0a24fa0f788d5b04b6154c89f83a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://packmon ---/Packmon images/Gavlarnton/Gavlarnton.png"
-dest_files=[ "res://.import/Gavlarnton.png-7b7e7fae4650ea6dc6e445d6378da2df.stex" ]
+source_file="res://packmon/Packmon images/Gavlarnton/Gavlarnton.png"
+dest_files=[ "res://.import/Gavlarnton.png-012f0a24fa0f788d5b04b6154c89f83a.stex" ]
 
 [params]
 

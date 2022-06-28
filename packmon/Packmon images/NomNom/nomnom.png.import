@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Blazesect.png-1bbc6a259e35695edee87dcb469af2b4.stex"
+path="res://.import/nomnom.png-c8fea71af23a72c858b18bf735a222a2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://packmon/Packmon images/Blazesect/Blazesect.png"
-dest_files=[ "res://.import/Blazesect.png-1bbc6a259e35695edee87dcb469af2b4.stex" ]
+source_file="res://packmon/Packmon images/NomNom/nomnom.png"
+dest_files=[ "res://.import/nomnom.png-c8fea71af23a72c858b18bf735a222a2.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=false
+detect_3d=true
 svg/scale=1.0

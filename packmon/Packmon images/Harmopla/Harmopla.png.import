@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Harmopla.png-f0e1ca9ccf8d71330d89a718c613997c.stex"
+path="res://.import/Harmopla.png-21569d5e79faa2d121b7389bdf17f543.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://packmon ---/Packmon images/Harmopla/Harmopla.png"
-dest_files=[ "res://.import/Harmopla.png-f0e1ca9ccf8d71330d89a718c613997c.stex" ]
+source_file="res://packmon/Packmon images/Harmopla/Harmopla.png"
+dest_files=[ "res://.import/Harmopla.png-21569d5e79faa2d121b7389bdf17f543.stex" ]
 
 [params]
 

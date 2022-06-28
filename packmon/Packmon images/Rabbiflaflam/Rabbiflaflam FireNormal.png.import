@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Rabbiflaflam FireNormal.png-c448442956011d3d93f23ede66ef5492.stex"
+path="res://.import/Rabbiflaflam FireNormal.png-48778d9f95485dc7d74447d4f2b9e363.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://packmon ---/Packmon images/Rabbiflaflam/Rabbiflaflam FireNormal.png"
-dest_files=[ "res://.import/Rabbiflaflam FireNormal.png-c448442956011d3d93f23ede66ef5492.stex" ]
+source_file="res://packmon/Packmon images/Rabbiflaflam/Rabbiflaflam FireNormal.png"
+dest_files=[ "res://.import/Rabbiflaflam FireNormal.png-48778d9f95485dc7d74447d4f2b9e363.stex" ]
 
 [params]
 
