@@ -156,8 +156,8 @@ func _process(_delta):
 		num = rand.randi_range(0, 16)
 		if !alrdy_gen:
 			get_enemy(num)
-			$Battlebox.text=Packname +" erscheint!"
-			$Battlebox.visible=true
+			#$Battlebox.text=Packname +" erscheint!"
+			#$Battlebox.visible=true
 		_set_enemy_packmon_data(Packname, Packattacks, Packimage, Packhp, Packep)
 		loaded=true
 	#load user packmon
