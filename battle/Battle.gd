@@ -99,7 +99,7 @@ var PacknameU
 var PackattacksU=["", "", "", ""]
 var PackimageU
 var PackhpU
-var PackepU
+var PackepU=0
 
 #number of rounds
 var rounds=0
@@ -205,7 +205,11 @@ func _process(_delta):
 		#solves create enemy bug, prob bc no func is called so changes are permanent
 		packmon.hp=25
 		loaded=false
-		#u_packmon.levelup()
+		PackepU+=4
+		#better levelup is needed
+		if PackepU==12:
+			u_packmon.levelup()
+			PackepU=0
 		#get_node("BackpacksTeam/PackmonInfo").get_node("HP").max_value = u_packmon.hp
 		print("Level: ", u_packmon.lvl)
 		
@@ -228,9 +232,10 @@ func _set_enemy_packmon_data(name, attacks, image, hp, ep):
 	get_node("Enemy/PackmonInfo").get_node("Name").text = name
 	get_node("Enemy/PackmonInfo").get_node("HP").max_value = hp
 	get_node("Enemy/PackmonInfo").get_node("HP").value = hp
-	get_node("Enemy/PackmonInfo").get_node("HP").get_node("HPNumber").text = str(hp)
+	get_node("Enemy/PackmonInfo").get_node("HP").get_node("HPNumber").text = str(hp)+" / "+str(get_node("Enemy/PackmonInfo").get_node("HP").max_value)
 	get_node("Enemy/PackmonInfo").get_node("EP").max_value = ep
 	get_node("Enemy/PackmonInfo").get_node("EP").value = ep
+	$Enemy/PackmonInfo/Lvl_enemy.text="Level: "+str(packmon.lvl)
 	#load packmon image
 	get_node("Enemy/PackmonImage2").texture=image
 
@@ -240,8 +245,10 @@ func _set_user_packmon_data(name, attacks, image, hp, ep):
 	get_node("BackpacksTeam/PackmonInfo").get_node("HP").max_value = hp
 	get_node("BackpacksTeam/PackmonInfo").get_node("HP").value = hp
 	get_node("BackpacksTeam/PackmonInfo").get_node("HP").get_node("HPNumber").text = str(hp)
-	get_node("BackpacksTeam/PackmonInfo").get_node("EP").max_value = ep
+	get_node("BackpacksTeam/PackmonInfo").get_node("EP").max_value = 12
 	get_node("BackpacksTeam/PackmonInfo").get_node("EP").value = ep
+	#u_packmon.lvl=player.packmon_space[0][0]
+	$BackpacksTeam/PackmonInfo/Lvl.text="Level: "+str(u_packmon.lvl)
 	
 	#load packmon image
 	get_node("BackpacksTeam/PackmonImage").texture=image
@@ -254,14 +261,14 @@ func _set_user_packmon_data(name, attacks, image, hp, ep):
 func _update_packmon_data(name, attacks, image, hp, ep, nameU, attacksU, imageU, hpU, epU):
 	get_node("Enemy/PackmonInfo").get_node("Name").text = name
 	get_node("Enemy/PackmonInfo").get_node("HP").value = hp
-	get_node("Enemy/PackmonInfo").get_node("HP").get_node("HPNumber").text = str(hp)
+	get_node("Enemy/PackmonInfo").get_node("HP").get_node("HPNumber").text = str(hp)+" / "+str(get_node("Enemy/PackmonInfo").get_node("HP").max_value)
 	get_node("Enemy/PackmonInfo").get_node("EP").value = ep
 	
 	get_node("BackpacksTeam/PackmonInfo").get_node("Name").text = nameU
 	get_node("BackpacksTeam/PackmonInfo").get_node("HP").value = hpU
-	get_node("BackpacksTeam/PackmonInfo").get_node("HP").get_node("HPNumber").text = str(hpU)
+	get_node("BackpacksTeam/PackmonInfo").get_node("HP").get_node("HPNumber").text = str(hpU)+" / "+str($BackpacksTeam/PackmonInfo/HP.max_value)
 	get_node("BackpacksTeam/PackmonInfo").get_node("EP").value = epU
-	u_packmon.lvl=player.packmon_space[0][0]
+	$BackpacksTeam/PackmonInfo/Lvl.text="Level: "+str(u_packmon.lvl)
 
 func _on_Button_pressed():
 	if sel:

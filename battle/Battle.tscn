@@ -1,13 +1,13 @@
-[gd_scene load_steps=51 format=2]
+[gd_scene load_steps=71 format=2]
 
-[ext_resource path="res://battle/BattleImage/TestBackground.png" type="Texture" id=1]
+[ext_resource path="res://battle/BattleImage/a834afbaa0de63124cf577735444c29c-1.png (2).png" type="Texture" id=1]
 [ext_resource path="res://battle/bag.gd" type="Script" id=2]
-[ext_resource path="res://battle/Pockmon Info.tscn" type="PackedScene" id=3]
+[ext_resource path="res://battle/HP.gd" type="Script" id=3]
 [ext_resource path="res://battle/Battle.gd" type="Script" id=4]
 [ext_resource path="res://dpcomic (1).ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://battle/PackmonImage.gd" type="Script" id=6]
 [ext_resource path="res://battle/PackmonImage2.gd" type="Script" id=7]
-[ext_resource path="res://battle/Packmon Info2.tscn" type="PackedScene" id=8]
+[ext_resource path="res://battle/Name.gd" type="Script" id=8]
 [ext_resource path="res://battle/attackmenu/Button.gd" type="Script" id=9]
 [ext_resource path="res://battle/attackmenu/Button3.gd" type="Script" id=10]
 [ext_resource path="res://battle/attackmenu/Button2.gd" type="Script" id=11]
@@ -27,20 +27,77 @@
 [ext_resource path="res://battle/BattleImage/bag grtey (3).png" type="Texture" id=25]
 [ext_resource path="res://battle/BattleImage/Run yellow.png" type="Texture" id=26]
 [ext_resource path="res://battle/BattleImage/Run grey.png" type="Texture" id=27]
+[ext_resource path="res://battle/Button_font.tres" type="DynamicFont" id=28]
+[ext_resource path="res://battle/EP.gd" type="Script" id=29]
+[ext_resource path="res://battle/Label_font.tres" type="DynamicFont" id=30]
 
 [sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.0745098, 0.0745098, 0.0745098, 0.733333 )
+bg_color = Color( 0.356863, 0.356863, 0.356863, 0.894118 )
+
+[sub_resource type="Theme" id=2]
+
+[sub_resource type="DynamicFont" id=9]
+size = 7
+font_data = ExtResource( 5 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.141176, 0.909804, 0.0313726, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.376471, 0.376471, 0.376471, 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 5
+font_data = ExtResource( 5 )
 
 [sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.0470588, 0.482353, 0.992157, 1 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.376471, 0.376471, 0.376471, 1 )
+
+[sub_resource type="StyleBoxFlat" id=25]
+bg_color = Color( 0.356863, 0.356863, 0.356863, 0.894118 )
+
+[sub_resource type="DynamicFont" id=26]
+size = 5
+font_data = ExtResource( 5 )
+
+[sub_resource type="Theme" id=27]
+
+[sub_resource type="DynamicFont" id=28]
+size = 7
+font_data = ExtResource( 5 )
+
+[sub_resource type="StyleBoxFlat" id=29]
+bg_color = Color( 0.141176, 0.909804, 0.0313726, 1 )
+
+[sub_resource type="StyleBoxFlat" id=30]
+bg_color = Color( 0.376471, 0.376471, 0.376471, 1 )
+
+[sub_resource type="DynamicFont" id=31]
+size = 5
+font_data = ExtResource( 5 )
+
+[sub_resource type="StyleBoxFlat" id=32]
+bg_color = Color( 0.0470588, 0.482353, 0.992157, 1 )
+
+[sub_resource type="StyleBoxFlat" id=33]
+bg_color = Color( 0.376471, 0.376471, 0.376471, 1 )
+
+[sub_resource type="StyleBoxFlat" id=34]
+bg_color = Color( 0.0745098, 0.0745098, 0.0745098, 0.733333 )
+
+[sub_resource type="StyleBoxFlat" id=35]
 bg_color = Color( 0.603922, 0.564706, 0.545098, 1 )
 
-[sub_resource type="StyleBoxFlat" id=9]
+[sub_resource type="StyleBoxFlat" id=36]
 bg_color = Color( 0.917647, 0.858824, 0.533333, 1 )
 
-[sub_resource type="StyleBoxFlat" id=8]
+[sub_resource type="StyleBoxFlat" id=37]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=38]
 bg_color = Color( 0.603922, 0.564706, 0.545098, 1 )
 
 [sub_resource type="StyleBoxFlat" id=10]
@@ -52,7 +109,7 @@ bg_color = Color( 0.917647, 0.858824, 0.533333, 1 )
 [sub_resource type="StyleBoxFlat" id=12]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=39]
 bg_color = Color( 0.603922, 0.564706, 0.545098, 1 )
 
 [sub_resource type="StyleBoxFlat" id=13]
@@ -64,7 +121,7 @@ bg_color = Color( 0.917647, 0.858824, 0.533333, 1 )
 [sub_resource type="StyleBoxFlat" id=15]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=40]
 bg_color = Color( 0.603922, 0.564706, 0.545098, 1 )
 
 [sub_resource type="StyleBoxFlat" id=16]
@@ -76,7 +133,7 @@ bg_color = Color( 0.917647, 0.858824, 0.533333, 1 )
 [sub_resource type="StyleBoxFlat" id=18]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=41]
 bg_color = Color( 0.603922, 0.564706, 0.545098, 1 )
 
 [sub_resource type="StyleBoxFlat" id=22]
@@ -118,10 +175,69 @@ margin_bottom = 30.0
 margin_right = 100.0
 script = ExtResource( 6 )
 
-[node name="PackmonInfo" parent="BackpacksTeam" instance=ExtResource( 3 )]
+[node name="PackmonInfo" type="Panel" parent="BackpacksTeam"]
 margin_top = 4.0
+margin_right = 100.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 100, 20 )
+custom_styles/panel = SubResource( 1 )
+
+[node name="Name" type="Label" parent="BackpacksTeam/PackmonInfo"]
+margin_left = 5.0
+margin_right = 100.0
+margin_bottom = 5.0
+custom_fonts/font = ExtResource( 30 )
+text = "Name"
+script = ExtResource( 8 )
+
+[node name="Lvl" type="Label" parent="BackpacksTeam/PackmonInfo"]
+margin_left = 80.0
+margin_right = 89.0
+margin_bottom = 5.0
+rect_min_size = Vector2( 5, 5 )
+custom_fonts/font = ExtResource( 30 )
+text = "Hallo"
+
+[node name="HP" type="ProgressBar" parent="BackpacksTeam/PackmonInfo"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 75.0
+margin_bottom = 10.0
+theme = SubResource( 2 )
+custom_fonts/font = SubResource( 9 )
+custom_styles/fg = SubResource( 3 )
+custom_styles/bg = SubResource( 4 )
+step = 1.0
+percent_visible = false
+script = ExtResource( 3 )
+
+[node name="HPNumber" type="Label" parent="BackpacksTeam/PackmonInfo/HP"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -2.5
+margin_right = 20.0
+margin_bottom = 2.5
+custom_fonts/font = SubResource( 5 )
+text = "100/100"
+
+[node name="EP" type="ProgressBar" parent="BackpacksTeam/PackmonInfo"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -45.0
+margin_top = -5.0
+margin_right = 25.0
+custom_styles/fg = SubResource( 6 )
+custom_styles/bg = SubResource( 7 )
+min_value = 1.0
+value = 50.0
+exp_edit = true
+percent_visible = false
+script = ExtResource( 29 )
 
 [node name="Enemy" type="VBoxContainer" parent="."]
 anchor_left = 1.0
@@ -133,13 +249,73 @@ margin_top = -7.5
 margin_bottom = 7.5
 
 [node name="PackmonImage2" type="TextureRect" parent="Enemy"]
-margin_right = 100.0
+margin_left = 80.0
+rect_min_size = Vector2( 16, 16 )
 script = ExtResource( 7 )
 
-[node name="PackmonInfo" parent="Enemy" instance=ExtResource( 8 )]
-margin_top = 4.0
-margin_bottom = 24.0
+[node name="PackmonInfo" type="Panel" parent="Enemy"]
+margin_top = 20.0
+margin_right = 100.0
+margin_bottom = 40.0
 rect_min_size = Vector2( 100, 20 )
+custom_styles/panel = SubResource( 25 )
+
+[node name="Name" type="Label" parent="Enemy/PackmonInfo"]
+margin_left = 5.0
+margin_right = 100.0
+margin_bottom = 5.0
+custom_fonts/font = SubResource( 26 )
+text = "Name"
+script = ExtResource( 8 )
+
+[node name="Lvl_enemy" type="Label" parent="Enemy/PackmonInfo"]
+margin_left = 80.0
+margin_right = 89.0
+margin_bottom = 5.0
+rect_min_size = Vector2( 5, 5 )
+custom_fonts/font = ExtResource( 30 )
+text = "Hallo"
+
+[node name="HP" type="ProgressBar" parent="Enemy/PackmonInfo"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 75.0
+margin_bottom = 10.0
+theme = SubResource( 27 )
+custom_fonts/font = SubResource( 28 )
+custom_styles/fg = SubResource( 29 )
+custom_styles/bg = SubResource( 30 )
+step = 1.0
+percent_visible = false
+script = ExtResource( 3 )
+
+[node name="HPNumber" type="Label" parent="Enemy/PackmonInfo/HP"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -2.5
+margin_right = 20.0
+margin_bottom = 2.5
+custom_fonts/font = SubResource( 31 )
+text = "100/100"
+
+[node name="EP" type="ProgressBar" parent="Enemy/PackmonInfo"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -45.0
+margin_top = -5.0
+margin_right = 25.0
+custom_styles/fg = SubResource( 32 )
+custom_styles/bg = SubResource( 33 )
+min_value = 1.0
+value = 50.0
+exp_edit = true
+percent_visible = false
+script = ExtResource( 29 )
 
 [node name="actionmenu" type="Panel" parent="."]
 anchor_left = 0.5
@@ -149,17 +325,18 @@ anchor_bottom = 1.0
 margin_left = -80.0
 margin_top = -60.0
 margin_right = 80.0
-custom_styles/panel = SubResource( 1 )
+custom_styles/panel = SubResource( 34 )
 
 [node name="Button" type="Button" parent="actionmenu"]
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 82.0
 margin_bottom = 21.25
-custom_styles/hover = SubResource( 6 )
-custom_styles/pressed = SubResource( 9 )
-custom_styles/focus = SubResource( 8 )
-custom_styles/normal = SubResource( 2 )
+custom_fonts/font = ExtResource( 28 )
+custom_styles/hover = SubResource( 35 )
+custom_styles/pressed = SubResource( 36 )
+custom_styles/focus = SubResource( 37 )
+custom_styles/normal = SubResource( 38 )
 text = "default"
 script = ExtResource( 9 )
 
@@ -170,10 +347,11 @@ margin_left = -77.0
 margin_top = 5.0
 margin_right = -5.0
 margin_bottom = 21.25
+custom_fonts/font = ExtResource( 28 )
 custom_styles/hover = SubResource( 10 )
 custom_styles/pressed = SubResource( 11 )
 custom_styles/focus = SubResource( 12 )
-custom_styles/normal = SubResource( 3 )
+custom_styles/normal = SubResource( 39 )
 text = "default"
 script = ExtResource( 11 )
 
@@ -184,10 +362,11 @@ margin_left = 5.0
 margin_top = -8.125
 margin_right = 82.0
 margin_bottom = 8.125
+custom_fonts/font = ExtResource( 28 )
 custom_styles/hover = SubResource( 13 )
 custom_styles/pressed = SubResource( 14 )
 custom_styles/focus = SubResource( 15 )
-custom_styles/normal = SubResource( 4 )
+custom_styles/normal = SubResource( 40 )
 text = "default"
 script = ExtResource( 10 )
 
@@ -200,10 +379,11 @@ margin_left = -77.0
 margin_top = -8.125
 margin_right = -5.0
 margin_bottom = 8.125
+custom_fonts/font = ExtResource( 28 )
 custom_styles/hover = SubResource( 16 )
 custom_styles/pressed = SubResource( 17 )
 custom_styles/focus = SubResource( 18 )
-custom_styles/normal = SubResource( 5 )
+custom_styles/normal = SubResource( 41 )
 text = "default"
 script = ExtResource( 12 )
 
@@ -442,6 +622,7 @@ margin_top = 220.0
 margin_right = 250.0
 margin_bottom = 240.0
 rect_min_size = Vector2( 250, 20 )
+custom_fonts/font = ExtResource( 28 )
 shortcut = SubResource( 24 )
 text = "back"
 script = ExtResource( 13 )
@@ -454,6 +635,7 @@ margin_left = 250.0
 margin_top = 220.0
 margin_bottom = 240.0
 rect_min_size = Vector2( 69, 20 )
+custom_fonts/font = ExtResource( 28 )
 shortcut = SubResource( 24 )
 text = "Organize"
 
@@ -477,6 +659,7 @@ margin_left = -16.0
 margin_right = 43.0
 margin_bottom = 22.0
 rect_pivot_offset = Vector2( 0, 15 )
+custom_fonts/font = ExtResource( 28 )
 text = "Info"
 
 [node name="Use" type="Button" parent="Inventory/RightClickMenue"]
@@ -485,6 +668,7 @@ margin_top = 24.0
 margin_right = 43.0
 margin_bottom = 46.0
 rect_pivot_offset = Vector2( 0, 15 )
+custom_fonts/font = ExtResource( 28 )
 text = "Use"
 
 [node name="Items" type="Button" parent="Inventory/RightClickMenue"]
@@ -493,6 +677,7 @@ margin_top = 48.0
 margin_right = 43.0
 margin_bottom = 70.0
 rect_pivot_offset = Vector2( 0, 15 )
+custom_fonts/font = ExtResource( 28 )
 text = "Items"
 
 [node name="NamePackmon" type="Label" parent="Inventory/RightClickMenue"]
@@ -500,6 +685,7 @@ margin_left = -17.0
 margin_top = -27.0
 margin_right = 76.0
 margin_bottom = -11.0
+custom_fonts/font = ExtResource( 30 )
 text = "Name Packmon"
 
 [connection signal="pressed" from="actionmenu/Button" to="." method="_on_Button_pressed"]
