@@ -19,6 +19,6 @@ func _init():
 	onLevelupAtk=20
 	onLevelupDef=32
 	
-	texture=load("")
+	texture=load("res://packmon/Packmon images/NomNom/nomnom.png")
 func _ready():
 	pass
