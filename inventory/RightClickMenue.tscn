@@ -1,6 +1,5 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://themes/testTheme.tres" type="Theme" id=1]
 [ext_resource path="res://inventory/RightClickMenue.gd" type="Script" id=2]
 
 [node name="RightClickMenue" type="Node2D"]
@@ -22,7 +21,6 @@ margin_left = -16.0
 margin_right = 43.0
 margin_bottom = 22.0
 rect_pivot_offset = Vector2( 0, 15 )
-theme = ExtResource( 1 )
 text = "Info"
 
 [node name="Use" type="Button" parent="."]
@@ -31,7 +29,6 @@ margin_top = 24.0
 margin_right = 43.0
 margin_bottom = 46.0
 rect_pivot_offset = Vector2( 0, 15 )
-theme = ExtResource( 1 )
 text = "Use"
 
 [node name="Items" type="Button" parent="."]
@@ -40,7 +37,6 @@ margin_top = 48.0
 margin_right = 43.0
 margin_bottom = 70.0
 rect_pivot_offset = Vector2( 0, 15 )
-theme = ExtResource( 1 )
 text = "Items"
 
 [node name="NamePackmon" type="Label" parent="."]
@@ -48,5 +44,4 @@ margin_left = -17.0
 margin_top = -27.0
 margin_right = 76.0
 margin_bottom = -11.0
-theme = ExtResource( 1 )
 text = "Name Packmon"

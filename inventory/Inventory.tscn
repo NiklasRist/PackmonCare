@@ -1,11 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://inventory/Inventory.gd" type="Script" id=1]
 [ext_resource path="res://inventory/INventoryImages/backgroundInventory.png" type="Texture" id=2]
 [ext_resource path="res://inventory/INventoryImages/panel.png" type="Texture" id=3]
 [ext_resource path="res://inventory/INventoryImages/slot.png" type="Texture" id=4]
-[ext_resource path="res://themes/testTheme2.tres" type="Theme" id=5]
-[ext_resource path="res://inventory/slot1.gd" type="Script" id=6]
+[ext_resource path="res://inventory/slot code/slot1.gd" type="Script" id=6]
 [ext_resource path="res://inventory/Back.gd" type="Script" id=7]
 [ext_resource path="res://inventory/RightClickMenue.tscn" type="PackedScene" id=8]
 
@@ -32,7 +31,6 @@ texture = ExtResource( 2 )
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 rect_min_size = Vector2( 320, 220 )
-theme = ExtResource( 5 )
 
 [node name="grid" type="GridContainer" parent="ScrollContainer"]
 margin_right = 320.0
@@ -58,7 +56,6 @@ margin_right = 156.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 80, 80 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 6 )
 
 [node name="slot3" type="Panel" parent="ScrollContainer/grid"]
 margin_left = 152.0
@@ -66,7 +63,6 @@ margin_right = 232.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 80, 80 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 6 )
 
 [node name="slot4" type="Panel" parent="ScrollContainer/grid"]
 margin_left = 228.0
@@ -74,7 +70,6 @@ margin_right = 308.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 80, 80 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 6 )
 
 [node name="slot5" type="Panel" parent="ScrollContainer/grid"]
 margin_top = 71.0
@@ -82,7 +77,6 @@ margin_right = 80.0
 margin_bottom = 151.0
 rect_min_size = Vector2( 80, 80 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 6 )
 
 [node name="slot6" type="Panel" parent="ScrollContainer/grid"]
 margin_left = 76.0
@@ -91,7 +85,6 @@ margin_right = 156.0
 margin_bottom = 151.0
 rect_min_size = Vector2( 80, 80 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 6 )
 
 [node name="slot7" type="Panel" parent="ScrollContainer/grid"]
 margin_left = 152.0
@@ -100,7 +93,6 @@ margin_right = 232.0
 margin_bottom = 151.0
 rect_min_size = Vector2( 80, 80 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 6 )
 
 [node name="slot8" type="Panel" parent="ScrollContainer/grid"]
 margin_left = 228.0
@@ -109,7 +101,6 @@ margin_right = 308.0
 margin_bottom = 151.0
 rect_min_size = Vector2( 80, 80 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 6 )
 
 [node name="slot9" type="Panel" parent="ScrollContainer/grid"]
 margin_top = 142.0
@@ -117,7 +108,6 @@ margin_right = 80.0
 margin_bottom = 222.0
 rect_min_size = Vector2( 80, 80 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 6 )
 
 [node name="slot10" type="Panel" parent="ScrollContainer/grid"]
 margin_left = 76.0
@@ -126,7 +116,6 @@ margin_right = 156.0
 margin_bottom = 222.0
 rect_min_size = Vector2( 80, 80 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 6 )
 
 [node name="slot11" type="Panel" parent="ScrollContainer/grid"]
 margin_left = 152.0
@@ -135,7 +124,6 @@ margin_right = 232.0
 margin_bottom = 222.0
 rect_min_size = Vector2( 80, 80 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 6 )
 
 [node name="slot12" type="Panel" parent="ScrollContainer/grid"]
 margin_left = 228.0
@@ -144,7 +132,6 @@ margin_right = 308.0
 margin_bottom = 222.0
 rect_min_size = Vector2( 80, 80 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 6 )
 
 [node name="slot13" type="Panel" parent="ScrollContainer/grid"]
 margin_top = 213.0
@@ -152,7 +139,6 @@ margin_right = 80.0
 margin_bottom = 293.0
 rect_min_size = Vector2( 80, 80 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 6 )
 
 [node name="slot14" type="Panel" parent="ScrollContainer/grid"]
 margin_left = 76.0
@@ -161,7 +147,6 @@ margin_right = 156.0
 margin_bottom = 293.0
 rect_min_size = Vector2( 80, 80 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 6 )
 
 [node name="slot15" type="Panel" parent="ScrollContainer/grid"]
 margin_left = 152.0
@@ -170,7 +155,6 @@ margin_right = 232.0
 margin_bottom = 293.0
 rect_min_size = Vector2( 80, 80 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 6 )
 
 [node name="slot16" type="Panel" parent="ScrollContainer/grid"]
 margin_left = 228.0
@@ -179,7 +163,6 @@ margin_right = 308.0
 margin_bottom = 293.0
 rect_min_size = Vector2( 80, 80 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 6 )
 
 [node name="Node" type="Node2D" parent="."]
 z_index = 2

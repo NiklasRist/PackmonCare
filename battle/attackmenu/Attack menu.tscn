@@ -129,3 +129,5 @@ margin_left = -80.0
 margin_top = -20.0
 margin_right = 80.0
 margin_bottom = 0.0
+
+[connection signal="pressed" from="Button" to="Button" method="_on_Button_pressed"]

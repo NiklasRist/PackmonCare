@@ -1,27 +1,937 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=150 format=2]
 
 [ext_resource path="res://battle/BattleImage/TestBackground.png" type="Texture" id=1]
-[ext_resource path="res://battle/attackmenu/Attack menu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://battle/bag.gd" type="Script" id=2]
 [ext_resource path="res://battle/Pockmon Info.tscn" type="PackedScene" id=3]
 [ext_resource path="res://battle/Battle.gd" type="Script" id=4]
 [ext_resource path="res://dpcomic (1).ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://battle/PackmonImage.gd" type="Script" id=6]
 [ext_resource path="res://battle/PackmonImage2.gd" type="Script" id=7]
 [ext_resource path="res://battle/Packmon Info2.tscn" type="PackedScene" id=8]
+[ext_resource path="res://battle/attackmenu/Button.gd" type="Script" id=9]
+[ext_resource path="res://battle/attackmenu/Button3.gd" type="Script" id=10]
+[ext_resource path="res://battle/attackmenu/Button2.gd" type="Script" id=11]
+[ext_resource path="res://battle/attackmenu/Button4.gd" type="Script" id=12]
+[ext_resource path="res://inventory/Back.gd" type="Script" id=13]
+[ext_resource path="res://inventory/slot code/slot1.gd" type="Script" id=14]
+[ext_resource path="res://battle/TextureButton2.gd" type="Script" id=15]
+[ext_resource path="res://battle/switch.gd" type="Script" id=16]
+[ext_resource path="res://inventory/Inventory.gd" type="Script" id=17]
+[ext_resource path="res://inventory/RightClickMenue.gd" type="Script" id=18]
+[ext_resource path="res://inventory/INventoryImages/panel.png" type="Texture" id=19]
+[ext_resource path="res://inventory/INventoryImages/slot.png" type="Texture" id=20]
+[ext_resource path="res://inventory/INventoryImages/backgroundInventory.png" type="Texture" id=21]
+[ext_resource path="res://battle/BattleImage/switch yellow (2).png" type="Texture" id=22]
+[ext_resource path="res://battle/BattleImage/switch grey (2).png" type="Texture" id=23]
+[ext_resource path="res://battle/BattleImage/bag yellow (2).png" type="Texture" id=24]
+[ext_resource path="res://battle/BattleImage/bag grtey (3).png" type="Texture" id=25]
+[ext_resource path="res://battle/BattleImage/Run yellow.png" type="Texture" id=26]
+[ext_resource path="res://battle/BattleImage/Run grey.png" type="Texture" id=27]
+[ext_resource path="res://packmon/Packmon images/Dorie/Dorie.png" type="Texture" id=28]
+[ext_resource path="res://packmon/Dorie/Dorie.gd" type="Script" id=29]
+[ext_resource path="res://packmon/Packmon images/Eleceel/Eleceel.png" type="Texture" id=30]
+[ext_resource path="res://packmon/Eleceel/Eleceel.gd" type="Script" id=31]
+[ext_resource path="res://packmon/Packmon images/Mothragon/Mothragon, Boden, Käfer.png" type="Texture" id=32]
+[ext_resource path="res://packmon/Packmon images/Dragon type 1/Dragon type 1.png" type="Texture" id=33]
+[ext_resource path="res://packmon/Packmon images/Flacier/Flacier.png" type="Texture" id=34]
+[ext_resource path="res://packmon/Packmon images/Gavlarnton/Gavlarnton.png" type="Texture" id=35]
+[ext_resource path="res://packmon/Flacier/Flacier.gd" type="Script" id=36]
+[ext_resource path="res://packmon/Gavlarnton/Gavlarnton.gd" type="Script" id=37]
+[ext_resource path="res://packmon/Golec/golec.gd" type="Script" id=38]
+[ext_resource path="res://packmon/Harmopla/Harmopla.gd" type="Script" id=39]
+[ext_resource path="res://packmon/Mastermind/Mastermind.gd" type="Script" id=40]
+[ext_resource path="res://packmon/Dragon type 1/Dragon type 1.gd" type="Script" id=41]
+[ext_resource path="res://packmon/Packmon images/Harmopla/Harmopla.png" type="Texture" id=42]
+[ext_resource path="res://packmon/Packmon images/Golec/Golec.png" type="Texture" id=43]
+[ext_resource path="res://packmon/Packmon images/Mastermind/Mastermind.png" type="Texture" id=44]
+[ext_resource path="res://packmon/Mothragon/Mothragon.gd" type="Script" id=45]
+[ext_resource path="res://packmon/Packmon images/NIGHTMARE/naghtmare.jpg" type="Texture" id=46]
+[ext_resource path="res://packmon/Packmon images/Rabbiflaflam/Rabbiflaflam FireNormal.png" type="Texture" id=47]
+[ext_resource path="res://packmon/Packmon images/NomNom/nomnom.png" type="Texture" id=48]
+[ext_resource path="res://packmon/Packmon images/Poiwesa/Powesa.png" type="Texture" id=49]
+[ext_resource path="res://packmon/Packmon images/Voiradon/Voiradon, fight, ghost.png" type="Texture" id=50]
+[ext_resource path="res://packmon/Packmon images/Blazesect/Blazesect.png" type="Texture" id=51]
+[ext_resource path="res://packmon/Packmon images/Torblast/Torblast, water rock.png" type="Texture" id=52]
+[ext_resource path="res://packmon/Packmon images/Piranha Plant/Piranha Plant.png" type="Texture" id=53]
+[ext_resource path="res://packmon/Torblast/Torblast.gd" type="Script" id=54]
+[ext_resource path="res://packmon/Piranha Plant/Piranha Plant.gd" type="Script" id=55]
+[ext_resource path="res://packmon/Voiradon/Voiradon.gd" type="Script" id=56]
+[ext_resource path="res://packmon/Rabbiflaflam/Rabbiflaflam.gd" type="Script" id=57]
+[ext_resource path="res://packmon/Poiwesa/Poiwesa.gd" type="Script" id=58]
+[ext_resource path="res://packmon/NomNom/NomNom.gd" type="Script" id=59]
+[ext_resource path="res://packmon/Nightmare/Nightmare.gd" type="Script" id=60]
+[ext_resource path="res://packmon/blazesect/Blazesect.gd" type="Script" id=61]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 51 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 51 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 51 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 51 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "stand",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=64]
+atlas = ExtResource( 50 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=65]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 64 ) ],
+"loop": true,
+"name": "stand",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=66]
+atlas = ExtResource( 52 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=67]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 66 ) ],
+"loop": true,
+"name": "stand",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=68]
+atlas = ExtResource( 47 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=69]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 68 ) ],
+"loop": true,
+"name": "stand",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=70]
+atlas = ExtResource( 49 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=71]
+atlas = ExtResource( 49 )
+region = Rect2( 0, 16, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=72]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 70 ), SubResource( 71 ) ],
+"loop": true,
+"name": "stand",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=73]
+atlas = ExtResource( 53 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=74]
+atlas = ExtResource( 53 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=75]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 73 ), SubResource( 74 ) ],
+"loop": true,
+"name": "stand",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=76]
+atlas = ExtResource( 48 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=77]
+atlas = ExtResource( 48 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=78]
+atlas = ExtResource( 48 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=79]
+atlas = ExtResource( 48 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=80]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 76 ), SubResource( 77 ), SubResource( 78 ), SubResource( 79 ) ],
+"loop": true,
+"name": "stand",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=81]
+atlas = ExtResource( 46 )
+region = Rect2( 0, 0, 14, 16 )
+
+[sub_resource type="SpriteFrames" id=82]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 81 ) ],
+"loop": true,
+"name": "stand",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=88]
+atlas = ExtResource( 32 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=89]
+atlas = ExtResource( 32 )
+region = Rect2( 0, 16, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=84]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 88 ), SubResource( 89 ) ],
+"loop": true,
+"name": "stand",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 44 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=35]
+atlas = ExtResource( 44 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=85]
+atlas = ExtResource( 44 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=86]
+atlas = ExtResource( 44 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=87]
+atlas = ExtResource( 44 )
+region = Rect2( 64, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 44 )
+region = Rect2( 80, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 44 )
+region = Rect2( 96, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 44 )
+region = Rect2( 112, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 34 ), SubResource( 35 ), SubResource( 85 ), SubResource( 86 ), SubResource( 87 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
+"loop": true,
+"name": "stand",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=36]
+atlas = ExtResource( 42 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=37]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 36 ) ],
+"loop": true,
+"name": "stand",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=38]
+atlas = ExtResource( 43 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=39]
+atlas = ExtResource( 43 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=40]
+atlas = ExtResource( 43 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=41]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 38 ), SubResource( 39 ), SubResource( 40 ) ],
+"loop": true,
+"name": "stand",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=42]
+atlas = ExtResource( 35 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=43]
+atlas = ExtResource( 35 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=44]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 42 ), SubResource( 43 ) ],
+"loop": true,
+"name": "stand",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=45]
+atlas = ExtResource( 34 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=46]
+atlas = ExtResource( 34 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=47]
+atlas = ExtResource( 34 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=48]
+atlas = ExtResource( 34 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=49]
+atlas = ExtResource( 34 )
+region = Rect2( 64, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=50]
+atlas = ExtResource( 34 )
+region = Rect2( 80, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=51]
+atlas = ExtResource( 34 )
+region = Rect2( 96, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=52]
+atlas = ExtResource( 34 )
+region = Rect2( 112, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=53]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ), SubResource( 52 ) ],
+"loop": true,
+"name": "stand",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=54]
+atlas = ExtResource( 33 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=55]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 54 ) ],
+"loop": true,
+"name": "stand",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=56]
+atlas = ExtResource( 30 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=57]
+atlas = ExtResource( 30 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=58]
+atlas = ExtResource( 30 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=59]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 56 ), SubResource( 57 ), SubResource( 58 ) ],
+"loop": true,
+"name": "stand",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 28 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 28 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 28 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 28 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=60]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ) ],
+"loop": true,
+"name": "stand",
+"speed": 5.0
+} ]
+
+[sub_resource type="StyleBoxFlat" id=25]
+bg_color = Color( 0.0745098, 0.0745098, 0.0745098, 0.733333 )
+
+[sub_resource type="StyleBoxFlat" id=61]
+bg_color = Color( 0.603922, 0.564706, 0.545098, 1 )
+
+[sub_resource type="StyleBoxFlat" id=62]
+bg_color = Color( 0.917647, 0.858824, 0.533333, 1 )
+
+[sub_resource type="StyleBoxFlat" id=63]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=26]
+bg_color = Color( 0.603922, 0.564706, 0.545098, 1 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.603922, 0.564706, 0.545098, 1 )
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.917647, 0.858824, 0.533333, 1 )
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=27]
+bg_color = Color( 0.603922, 0.564706, 0.545098, 1 )
+
+[sub_resource type="StyleBoxFlat" id=13]
+bg_color = Color( 0.603922, 0.564706, 0.545098, 1 )
+
+[sub_resource type="StyleBoxFlat" id=14]
+bg_color = Color( 0.917647, 0.858824, 0.533333, 1 )
+
+[sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=28]
+bg_color = Color( 0.603922, 0.564706, 0.545098, 1 )
+
+[sub_resource type="StyleBoxFlat" id=16]
+bg_color = Color( 0.603922, 0.564706, 0.545098, 1 )
+
+[sub_resource type="StyleBoxFlat" id=17]
+bg_color = Color( 0.917647, 0.858824, 0.533333, 1 )
+
+[sub_resource type="StyleBoxFlat" id=18]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=29]
+bg_color = Color( 0.603922, 0.564706, 0.545098, 1 )
+
+[sub_resource type="StyleBoxFlat" id=22]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="DynamicFont" id=19]
 font_data = ExtResource( 5 )
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=20]
 bg_color = Color( 0.603922, 0.564706, 0.545098, 1 )
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=21]
 bg_color = Color( 0.603922, 0.564706, 0.545098, 1 )
+
+[sub_resource type="StyleBoxTexture" id=23]
+texture = ExtResource( 20 )
+region_rect = Rect2( 0, 0, 60, 60 )
+
+[sub_resource type="ShortCut" id=24]
 
 [node name="Battle" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 4 )
+
+[node name="Blazesect" type="Node2D" parent="."]
+visible = false
+script = ExtResource( 61 )
+
+[node name="Sprite" type="Sprite" parent="Blazesect"]
+visible = false
+texture = ExtResource( 51 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Blazesect"]
+frames = SubResource( 5 )
+animation = "stand"
+frame = 1
+playing = true
+
+[node name="Voiradon" type="Node2D" parent="."]
+visible = false
+script = ExtResource( 56 )
+onLevelupHp = 19
+onLevelupSpd = 19
+onLevelupAtk = 40
+onLevelupDef = 22
+type = PoolStringArray( "fight", "ghost" )
+epRequired = 12
+lvl = 1
+hp = 19
+spd = 20
+atk = 43
+def = 18
+texture = ExtResource( 50 )
+
+[node name="Sprite" type="Sprite" parent="Voiradon"]
+texture = ExtResource( 50 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Voiradon"]
+frames = SubResource( 65 )
+animation = "stand"
+
+[node name="Torblast" type="Node2D" parent="."]
+visible = false
+script = ExtResource( 54 )
+onLevelupHp = 38
+onLevelupSpd = 9
+onLevelupAtk = 21
+onLevelupDef = 32
+type = PoolStringArray( "rock", "water" )
+epRequired = 12
+lvl = 1
+hp = 37
+spd = 12
+atk = 18
+def = 33
+texture = ExtResource( 52 )
+
+[node name="Sprite" type="Sprite" parent="Torblast"]
+texture = ExtResource( 52 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Torblast"]
+frames = SubResource( 67 )
+animation = "stand"
+
+[node name="Rabbiflaflam" type="Node2D" parent="."]
+visible = false
+script = ExtResource( 57 )
+onLevelupHp = 21
+onLevelupSpd = 29
+onLevelupAtk = 31
+onLevelupDef = 19
+type = PoolStringArray( "Fire", "Normal" )
+epRequired = 12
+lvl = 1
+hp = 21
+spd = 28
+atk = 30
+def = 21
+texture = ExtResource( 47 )
+
+[node name="Sprite" type="Sprite" parent="Rabbiflaflam"]
+texture = ExtResource( 47 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Rabbiflaflam"]
+frames = SubResource( 69 )
+animation = "stand"
+
+[node name="Poiwesa" type="Node2D" parent="."]
+visible = false
+script = ExtResource( 58 )
+onLevelupHp = 26
+onLevelupSpd = 27
+onLevelupAtk = 35
+onLevelupDef = 10
+epRequired = 12
+lvl = 1
+hp = 24
+spd = 26
+atk = 33
+def = 17
+texture = ExtResource( 49 )
+
+[node name="Sprite" type="Sprite" parent="Poiwesa"]
+visible = false
+texture = ExtResource( 49 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Poiwesa"]
+frames = SubResource( 72 )
+animation = "stand"
+playing = true
+
+[node name="Piranha Plant" type="Node2D" parent="."]
+visible = false
+script = ExtResource( 55 )
+onLevelupHp = 26
+onLevelupSpd = 12
+onLevelupAtk = 34
+onLevelupDef = 28
+ep = 12
+lvl = 1
+hp = 25
+spd = 13
+atk = 37
+def = 25
+texture = ExtResource( 53 )
+
+[node name="Sprite" type="Sprite" parent="Piranha Plant"]
+visible = false
+texture = ExtResource( 53 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Piranha Plant"]
+frames = SubResource( 75 )
+animation = "stand"
+frame = 1
+playing = true
+
+[node name="NomNom" type="Node2D" parent="."]
+visible = false
+script = ExtResource( 59 )
+onLevelupHp = 15
+onLevelupSpd = 29
+onLevelupAtk = 20
+onLevelupDef = 32
+epRequired = 12
+lvl = 1
+hp = 12
+spd = 30
+atk = 22
+def = 38
+
+[node name="Sprite" type="Sprite" parent="NomNom"]
+visible = false
+texture = ExtResource( 48 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="NomNom"]
+frames = SubResource( 80 )
+animation = "stand"
+frame = 2
+playing = true
+
+[node name="Nightmare" type="Node2D" parent="."]
+visible = false
+script = ExtResource( 60 )
+onLevelupHp = 10
+onLevelupSpd = 22
+onLevelupAtk = 44
+onLevelupDef = 20
+ep = 12
+lvl = 1
+hp = 18
+spd = 26
+atk = 40
+def = 18
+
+[node name="Sprite" type="Sprite" parent="Nightmare"]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Nightmare"]
+frames = SubResource( 82 )
+animation = "stand"
+
+[node name="Mothragon" type="Node2D" parent="."]
+visible = false
+script = ExtResource( 45 )
+onLevelupHp = 30
+onLevelupSpd = 16
+onLevelupAtk = 377
+onLevelupDef = 19
+type = PoolStringArray( "Boden", "Käfer" )
+epRequired = 12
+lvl = 1
+hp = 31
+spd = 15
+atk = 36
+def = 20
+texture = ExtResource( 32 )
+
+[node name="Sprite" type="Sprite" parent="Mothragon"]
+visible = false
+texture = ExtResource( 32 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Mothragon"]
+frames = SubResource( 84 )
+animation = "stand"
+frame = 1
+playing = true
+
+[node name="Mastermind" type="Node2D" parent="."]
+visible = false
+script = ExtResource( 40 )
+onLevelupHp = 26
+onLevelupSpd = 22
+onLevelupAtk = 28
+onLevelupDef = 12
+epRequired = 12
+lvl = 1
+hp = 47
+spd = 23
+atk = 18
+def = 12
+texture = ExtResource( 44 )
+
+[node name="Sprite" type="Sprite" parent="Mastermind"]
+visible = false
+texture = ExtResource( 44 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Mastermind"]
+frames = SubResource( 9 )
+animation = "stand"
+frame = 2
+playing = true
+
+[node name="Harmopla" type="Node2D" parent="."]
+visible = false
+script = ExtResource( 39 )
+onLevelupHp = 15
+onLevelupSpd = 47
+onLevelupAtk = 11
+onLevelupDef = 27
+type = PoolStringArray( "Flying", "Steel" )
+epRequired = 12
+lvl = 1
+hp = 17
+spd = 45
+atk = 11
+def = 22
+texture = ExtResource( 42 )
+
+[node name="Sprite" type="Sprite" parent="Harmopla"]
+texture = ExtResource( 42 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Harmopla"]
+frames = SubResource( 37 )
+animation = "stand"
+
+[node name="golec" type="Node2D" parent="."]
+visible = false
+script = ExtResource( 38 )
+onLevelupHp = 33
+onLevelupSpd = 27
+onLevelupAtk = 12
+onLevelupDef = 28
+epRequired = 12
+lvl = 1
+hp = 30
+spd = 28
+atk = 12
+def = 30
+texture = ExtResource( 43 )
+
+[node name="Sprite" type="Sprite" parent="golec"]
+visible = false
+texture = ExtResource( 43 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="golec"]
+frames = SubResource( 41 )
+animation = "stand"
+frame = 2
+playing = true
+
+[node name="Gavlarnton" type="Node2D" parent="."]
+visible = false
+script = ExtResource( 37 )
+onLevelupHp = 21
+onLevelupSpd = 26
+onLevelupAtk = 34
+onLevelupDef = 19
+epRequired = 12
+lvl = 1
+hp = 12
+spd = 28
+atk = 37
+def = 13
+
+[node name="Sprite" type="Sprite" parent="Gavlarnton"]
+visible = false
+texture = ExtResource( 35 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Gavlarnton"]
+frames = SubResource( 44 )
+animation = "stand"
+playing = true
+
+[node name="Flacier" type="Node2D" parent="."]
+visible = false
+script = ExtResource( 36 )
+onLevelupHp = 30
+onLevelupSpd = 14
+onLevelupAtk = 24
+onLevelupDef = 32
+epRequired = 12
+lvl = 1
+hp = 29
+spd = 15
+atk = 25
+def = 31
+texture = ExtResource( 34 )
+
+[node name="Sprite" type="Sprite" parent="Flacier"]
+visible = false
+texture = ExtResource( 34 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Flacier"]
+frames = SubResource( 53 )
+animation = "stand"
+frame = 4
+playing = true
+
+[node name="Dragon type 1" type="Node2D" parent="."]
+visible = false
+script = ExtResource( 41 )
+Packmonname = "Dragon Type 1"
+onLevelupHp = 34
+onLevelupSpd = 9
+onLevelupAtk = 26
+onLevelupDef = 31
+type = PoolStringArray( "dragon" )
+epRequired = 12
+lvl = 1
+hp = 34
+spd = 10
+atk = 25
+def = 32
+
+[node name="Sprite" type="Sprite" parent="Dragon type 1"]
+texture = ExtResource( 33 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Dragon type 1"]
+frames = SubResource( 55 )
+
+[node name="Eleceel" type="Node2D" parent="."]
+visible = false
+script = ExtResource( 31 )
+
+[node name="Sprite" type="Sprite" parent="Eleceel"]
+visible = false
+texture = ExtResource( 30 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Eleceel"]
+frames = SubResource( 59 )
+animation = "stand"
+frame = 2
+playing = true
+
+[node name="Dorie" type="Node2D" parent="."]
+visible = false
+script = ExtResource( 29 )
+Packmonname = "Dorie"
+onLevelupHp = 42
+onLevelupSpd = 21
+onLevelupAtk = 18
+onLevelupDef = 19
+epRequired = 12
+hp = 42
+spd = 18
+atk = 19
+def = 21
+texture = ExtResource( 28 )
+
+[node name="Sprite" type="Sprite" parent="Dorie"]
+visible = false
+texture = ExtResource( 28 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Dorie"]
+frames = SubResource( 60 )
+animation = "stand"
+frame = 2
+playing = true
 
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
@@ -62,11 +972,116 @@ margin_top = 4.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 100, 20 )
 
-[node name="actionmenu" parent="." instance=ExtResource( 2 )]
+[node name="actionmenu" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
 margin_left = -80.0
+margin_top = -60.0
 margin_right = 80.0
+custom_styles/panel = SubResource( 25 )
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="Button" type="Button" parent="actionmenu"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 82.0
+margin_bottom = 21.25
+custom_styles/hover = SubResource( 61 )
+custom_styles/pressed = SubResource( 62 )
+custom_styles/focus = SubResource( 63 )
+custom_styles/normal = SubResource( 26 )
+text = "default"
+script = ExtResource( 9 )
+
+[node name="Button2" type="Button" parent="actionmenu"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -77.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = 21.25
+custom_styles/hover = SubResource( 10 )
+custom_styles/pressed = SubResource( 11 )
+custom_styles/focus = SubResource( 12 )
+custom_styles/normal = SubResource( 27 )
+text = "default"
+script = ExtResource( 11 )
+
+[node name="Button3" type="Button" parent="actionmenu"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 5.0
+margin_top = -8.125
+margin_right = 82.0
+margin_bottom = 8.125
+custom_styles/hover = SubResource( 13 )
+custom_styles/pressed = SubResource( 14 )
+custom_styles/focus = SubResource( 15 )
+custom_styles/normal = SubResource( 28 )
+text = "default"
+script = ExtResource( 10 )
+
+[node name="Button4" type="Button" parent="actionmenu"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -77.0
+margin_top = -8.125
+margin_right = -5.0
+margin_bottom = 8.125
+custom_styles/hover = SubResource( 16 )
+custom_styles/pressed = SubResource( 17 )
+custom_styles/focus = SubResource( 18 )
+custom_styles/normal = SubResource( 29 )
+text = "default"
+script = ExtResource( 12 )
+
+[node name="HBoxContainer" type="Panel" parent="actionmenu"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -80.0
+margin_top = -20.0
+margin_right = 80.0
+custom_styles/panel = SubResource( 22 )
+
+[node name="bag" type="TextureButton" parent="actionmenu/HBoxContainer"]
+margin_left = 5.0
+margin_right = 16.0
+margin_bottom = 20.0
+texture_normal = ExtResource( 25 )
+texture_pressed = ExtResource( 24 )
+texture_hover = ExtResource( 25 )
+script = ExtResource( 2 )
+
+[node name="flee" type="TextureButton" parent="actionmenu/HBoxContainer"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -8.0
+margin_top = -20.0
+margin_right = 8.0
+texture_normal = ExtResource( 27 )
+texture_pressed = ExtResource( 26 )
+texture_hover = ExtResource( 27 )
+script = ExtResource( 15 )
+
+[node name="switch" type="TextureButton" parent="actionmenu/HBoxContainer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -20.0
+margin_right = -4.0
+margin_bottom = 21.0
+texture_normal = ExtResource( 23 )
+texture_pressed = ExtResource( 22 )
+texture_hover = ExtResource( 23 )
+script = ExtResource( 16 )
+
+[node name="Battlebox" type="RichTextLabel" parent="."]
 visible = false
 anchor_top = 1.0
 anchor_right = 1.0
@@ -75,8 +1090,250 @@ margin_left = 10.0
 margin_top = -60.0
 margin_right = -10.0
 rect_min_size = Vector2( 300, 60 )
-custom_fonts/normal_font = SubResource( 1 )
-custom_styles/focus = SubResource( 2 )
-custom_styles/normal = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 19 )
+custom_styles/focus = SubResource( 20 )
+custom_styles/normal = SubResource( 21 )
 text = "Hekkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk"
 scroll_active = false
+
+[node name="Inventory" type="Node2D" parent="."]
+visible = false
+script = ExtResource( 17 )
+
+[node name="window" type="TextureRect" parent="Inventory"]
+margin_right = 320.0
+margin_bottom = 240.0
+texture = ExtResource( 19 )
+
+[node name="Background" type="TextureRect" parent="Inventory"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 320.0
+margin_bottom = 240.0
+texture = ExtResource( 21 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Inventory"]
+rect_min_size = Vector2( 320, 220 )
+
+[node name="grid" type="GridContainer" parent="Inventory/ScrollContainer"]
+margin_right = 320.0
+margin_bottom = 293.0
+rect_min_size = Vector2( 320, 240 )
+custom_constants/vseparation = -9
+custom_constants/hseparation = -4
+columns = 4
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="slot1" type="Panel" parent="Inventory/ScrollContainer/grid"]
+margin_right = 80.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+custom_styles/panel = SubResource( 23 )
+script = ExtResource( 14 )
+
+[node name="slot2" type="Panel" parent="Inventory/ScrollContainer/grid"]
+margin_left = 76.0
+margin_right = 156.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+custom_styles/panel = SubResource( 23 )
+script = ExtResource( 14 )
+
+[node name="slot3" type="Panel" parent="Inventory/ScrollContainer/grid"]
+margin_left = 152.0
+margin_right = 232.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+custom_styles/panel = SubResource( 23 )
+script = ExtResource( 14 )
+
+[node name="slot4" type="Panel" parent="Inventory/ScrollContainer/grid"]
+margin_left = 228.0
+margin_right = 308.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+custom_styles/panel = SubResource( 23 )
+script = ExtResource( 14 )
+
+[node name="slot5" type="Panel" parent="Inventory/ScrollContainer/grid"]
+margin_top = 71.0
+margin_right = 80.0
+margin_bottom = 151.0
+rect_min_size = Vector2( 80, 80 )
+custom_styles/panel = SubResource( 23 )
+script = ExtResource( 14 )
+
+[node name="slot6" type="Panel" parent="Inventory/ScrollContainer/grid"]
+margin_left = 76.0
+margin_top = 71.0
+margin_right = 156.0
+margin_bottom = 151.0
+rect_min_size = Vector2( 80, 80 )
+custom_styles/panel = SubResource( 23 )
+script = ExtResource( 14 )
+
+[node name="slot7" type="Panel" parent="Inventory/ScrollContainer/grid"]
+margin_left = 152.0
+margin_top = 71.0
+margin_right = 232.0
+margin_bottom = 151.0
+rect_min_size = Vector2( 80, 80 )
+custom_styles/panel = SubResource( 23 )
+script = ExtResource( 14 )
+
+[node name="slot8" type="Panel" parent="Inventory/ScrollContainer/grid"]
+margin_left = 228.0
+margin_top = 71.0
+margin_right = 308.0
+margin_bottom = 151.0
+rect_min_size = Vector2( 80, 80 )
+custom_styles/panel = SubResource( 23 )
+script = ExtResource( 14 )
+
+[node name="slot9" type="Panel" parent="Inventory/ScrollContainer/grid"]
+margin_top = 142.0
+margin_right = 80.0
+margin_bottom = 222.0
+rect_min_size = Vector2( 80, 80 )
+custom_styles/panel = SubResource( 23 )
+script = ExtResource( 14 )
+
+[node name="slot10" type="Panel" parent="Inventory/ScrollContainer/grid"]
+margin_left = 76.0
+margin_top = 142.0
+margin_right = 156.0
+margin_bottom = 222.0
+rect_min_size = Vector2( 80, 80 )
+custom_styles/panel = SubResource( 23 )
+script = ExtResource( 14 )
+
+[node name="slot11" type="Panel" parent="Inventory/ScrollContainer/grid"]
+margin_left = 152.0
+margin_top = 142.0
+margin_right = 232.0
+margin_bottom = 222.0
+rect_min_size = Vector2( 80, 80 )
+custom_styles/panel = SubResource( 23 )
+script = ExtResource( 14 )
+
+[node name="slot12" type="Panel" parent="Inventory/ScrollContainer/grid"]
+margin_left = 228.0
+margin_top = 142.0
+margin_right = 308.0
+margin_bottom = 222.0
+rect_min_size = Vector2( 80, 80 )
+custom_styles/panel = SubResource( 23 )
+script = ExtResource( 14 )
+
+[node name="slot13" type="Panel" parent="Inventory/ScrollContainer/grid"]
+margin_top = 213.0
+margin_right = 80.0
+margin_bottom = 293.0
+rect_min_size = Vector2( 80, 80 )
+custom_styles/panel = SubResource( 23 )
+script = ExtResource( 14 )
+
+[node name="slot14" type="Panel" parent="Inventory/ScrollContainer/grid"]
+margin_left = 76.0
+margin_top = 213.0
+margin_right = 156.0
+margin_bottom = 293.0
+rect_min_size = Vector2( 80, 80 )
+custom_styles/panel = SubResource( 23 )
+script = ExtResource( 14 )
+
+[node name="slot15" type="Panel" parent="Inventory/ScrollContainer/grid"]
+margin_left = 152.0
+margin_top = 213.0
+margin_right = 232.0
+margin_bottom = 293.0
+rect_min_size = Vector2( 80, 80 )
+custom_styles/panel = SubResource( 23 )
+script = ExtResource( 14 )
+
+[node name="slot16" type="Panel" parent="Inventory/ScrollContainer/grid"]
+margin_left = 228.0
+margin_top = 213.0
+margin_right = 308.0
+margin_bottom = 293.0
+rect_min_size = Vector2( 80, 80 )
+custom_styles/panel = SubResource( 23 )
+script = ExtResource( 14 )
+
+[node name="Node" type="Node2D" parent="Inventory"]
+z_index = 2
+
+[node name="Back" type="Button" parent="Inventory/Node"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 220.0
+margin_right = 250.0
+margin_bottom = 240.0
+rect_min_size = Vector2( 250, 20 )
+shortcut = SubResource( 24 )
+text = "back"
+script = ExtResource( 13 )
+
+[node name="organize" type="Button" parent="Inventory/Node"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 250.0
+margin_top = 220.0
+margin_bottom = 240.0
+rect_min_size = Vector2( 69, 20 )
+shortcut = SubResource( 24 )
+text = "Organize"
+
+[node name="RightClickMenue" type="Node2D" parent="Inventory"]
+visible = false
+position = Vector2( 18, 22 )
+scale = Vector2( 0.75241, 0.675825 )
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
+
+[node name="Hintergrundbox" type="Panel" parent="Inventory/RightClickMenue"]
+margin_left = -24.0
+margin_top = -32.0
+margin_right = 80.0
+margin_bottom = 80.0
+
+[node name="Info" type="Button" parent="Inventory/RightClickMenue"]
+margin_left = -16.0
+margin_right = 43.0
+margin_bottom = 22.0
+rect_pivot_offset = Vector2( 0, 15 )
+text = "Info"
+
+[node name="Use" type="Button" parent="Inventory/RightClickMenue"]
+margin_left = -16.0
+margin_top = 24.0
+margin_right = 43.0
+margin_bottom = 46.0
+rect_pivot_offset = Vector2( 0, 15 )
+text = "Use"
+
+[node name="Items" type="Button" parent="Inventory/RightClickMenue"]
+margin_left = -16.0
+margin_top = 48.0
+margin_right = 43.0
+margin_bottom = 70.0
+rect_pivot_offset = Vector2( 0, 15 )
+text = "Items"
+
+[node name="NamePackmon" type="Label" parent="Inventory/RightClickMenue"]
+margin_left = -17.0
+margin_top = -27.0
+margin_right = 76.0
+margin_bottom = -11.0
+text = "Name Packmon"
+
+[connection signal="pressed" from="actionmenu/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="actionmenu/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="actionmenu/Button3" to="." method="_on_Button3_pressed"]
+[connection signal="pressed" from="actionmenu/Button4" to="." method="_on_Button4_pressed"]
