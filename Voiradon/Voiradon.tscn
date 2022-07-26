@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://packmon/Voiradon/Voiradon.gd" type="Script" id=1]
+[ext_resource path="res://packmon/Packmon images/Voiradon/Voiradon, fight, ghost.png" type="Texture" id=2]
+
+[node name="Voiradon" type="Node2D"]
+script = ExtResource( 1 )
+onLevelupHp = 19
+onLevelupSpd = 19
+onLevelupAtk = 40
+onLevelupDef = 22
+type = PoolStringArray( "fight", "ghost" )
+epRequired = 12
+lvl = 1
+hp = 19
+spd = 20
+atk = 43
+def = 18
+texture = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
